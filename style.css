@@ -667,6 +667,16 @@ section { position: relative; }
     pointer-events: none;
     transition: box-shadow .4s var(--ease-smooth);
   }
+  .service-row-mobile-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    right: calc(100% + 10px);
+    width: 180px;
+    height: 1px;
+    background: var(--white); opacity: .2;
+    pointer-events: none;
+  }
   .service-row.active .service-row-mobile-dot {
     box-shadow: 0 0 14px 6px rgba(253,253,245,.6);
   }
