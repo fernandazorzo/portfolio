@@ -572,6 +572,12 @@ function initCarousel() {
   if (isMobile) {
     var firstCard = track.querySelector('.service-row');
     if (firstCard) track.appendChild(firstCard.cloneNode(true));
+    // Inject visible dot into each service row
+    track.querySelectorAll('.service-row').forEach(function(row) {
+      var dot = document.createElement('span');
+      dot.className = 'service-row-mobile-dot';
+      row.appendChild(dot);
+    });
   }
 
   function syncDots() {
