@@ -646,7 +646,8 @@ section { position: relative; }
   .carousel-dot.active { background: var(--accent); transform: scale(1.35); }
   .services-track {
     display: flex; gap: 0; padding: 0;
-    overflow-x: auto; overflow-y: visible;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
     scrollbar-width: none; -ms-overflow-style: none;
     scroll-behavior: smooth; -webkit-overflow-scrolling: touch; flex: 1;
   }
