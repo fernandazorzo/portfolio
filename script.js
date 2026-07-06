@@ -479,7 +479,7 @@ const i18n = {
   'header-cta': { pt: 'Vamos conversar', en: "Let's talk" },
   'hero-welcome': { pt: 'bem-vindo!', en: 'welcome!' },
   'hero-title': { pt: 'Construindo marcas com propósito e personalidade.', en: 'Building brands with purpose and personality.' },
-  'hero-subtitle': { pt: 'Direção de arte, branding e identidades visuais que unem estratégia, conceito e sensibilidade estética.', en: 'Art direction, branding and visual identities that unite strategy, concept and aesthetic sensibility.' },
+  'hero-subtitle': { pt: 'Direção de arte, branding e identidades visuais que unem<br>estratégia, conceito e sensibilidade estética.', en: 'Art direction, branding and visual identities that unite<br>strategy, concept and aesthetic sensibility.' },
   'hero-scroll': { pt: 'role para explorar', en: 'scroll to explore' },
   'services-title': { pt: 'Serviços', en: 'Services' },
   'serv-art-title': { pt: 'Direção de Arte', en: 'Art Direction' },
@@ -656,7 +656,7 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (i18n[key] && i18n[key][lang]) {
-      el.textContent = i18n[key][lang];
+      el.innerHTML = i18n[key][lang];
     }
   });
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
