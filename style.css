@@ -646,7 +646,7 @@ section { position: relative; }
   .carousel-dot.active { background: var(--accent); transform: scale(1.35); }
   .services-track {
     display: flex; gap: 0; padding: 0;
-    overflow-x: auto; scroll-snap-type: x mandatory;
+    overflow-x: auto; overflow-y: visible;
     scrollbar-width: none; -ms-overflow-style: none;
     scroll-behavior: smooth; -webkit-overflow-scrolling: touch; flex: 1;
   }
@@ -661,12 +661,24 @@ section { position: relative; }
   .service-row-num { display: none !important; }
   .service-row-line { display: none !important; }
   .service-row-mobile-dot {
-    position: absolute; top: 8px; left: 12px;
+    position: absolute; top: 16px; left: 16px;
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--white); display: block; z-index: 2;
     pointer-events: none;
-    transition: box-shadow .4s var(--ease-smooth);
   }
+  .service-row-mobile-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(253,253,245,.45), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s var(--ease-smooth);
+  }
+  .service-row.active .service-row-mobile-dot::before { opacity: 1; }
   .service-row-mobile-dot::after {
     content: '';
     position: absolute;
@@ -676,9 +688,6 @@ section { position: relative; }
     height: 1px;
     background: var(--white); opacity: .2;
     pointer-events: none;
-  }
-  .service-row.active .service-row-mobile-dot {
-    box-shadow: 0 0 14px 6px rgba(253,253,245,.6);
   }
   .services .service-row-desc,
   .services .service-row-items li,
