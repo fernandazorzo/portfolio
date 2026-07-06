@@ -334,7 +334,7 @@ section { position: relative; }
   .hero-logo { max-width: 280px; width: 75vw; }
   .hero-center { margin-top: -36vh; }
   .hero-bottom { bottom: 32vh; padding: 0 20px; width: 100%; left: 0; transform: none; max-width: 100%; text-align: left; }
-  .hero-title { font-size: 1.3rem; overflow-wrap: break-word; }
+  .hero-title { font-size: 1.6rem; overflow-wrap: break-word; }
   .hero-subtitle { font-size: .75rem; white-space: normal; overflow-wrap: break-word; }
   .hero-scroll { left: 50%; transform: translateX(-50%); bottom: 14vh; }
   .work-grid { padding: 0 20px; }
