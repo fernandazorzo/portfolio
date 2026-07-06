@@ -48,13 +48,27 @@ gsap.registerPlugin(ScrollTrigger);
 function animateHero() {
   const tl = gsap.timeline();
 
-  tl.to('.hero-label', {
-    y: 0, opacity: 1, duration: 1.2, ease: 'power3.out',
-  }, 0.3);
+  tl.to('.hero-welcome', {
+    opacity: 1, duration: 1, ease: 'power2.out',
+  }, 0.4);
 
-  tl.to('.hero-role', {
-    opacity: 1, duration: 1, ease: 'power3.out',
+  tl.to('.hero-logo', {
+    opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out',
+  }, 0.6);
+
+  tl.to('.hero-title', {
+    y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+  }, 1.0);
+
+  tl.to('.hero-subtitle', {
+    y: 0, opacity: 1, duration: 0.8, ease: 'power2.out',
   }, 1.3);
+
+  gsap.to('.hero-logo', {
+    y: -20, duration: 3, ease: 'sine.inOut',
+    repeat: -1, yoyo: true,
+    delay: 2.5,
+  });
 }
 
 // ─── MENU ───
@@ -164,6 +178,17 @@ if (window.innerWidth > 768) {
     el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
   });
+
+  const servicesSection = document.getElementById('services');
+  if (servicesSection) {
+    servicesSection.addEventListener('mouseenter', () => cursor.classList.add('services-hover'));
+    servicesSection.addEventListener('mouseleave', () => cursor.classList.remove('services-hover'));
+  }
+  const workSection = document.getElementById('work');
+  if (workSection) {
+    workSection.addEventListener('mouseenter', () => cursor.classList.add('work-hover'));
+    workSection.addEventListener('mouseleave', () => cursor.classList.remove('work-hover'));
+  }
 }
 
 // ─── SCROLL ANIMATIONS ───
@@ -183,7 +208,9 @@ function initScrollAnimations() {
   });
 
   // Work cards: hover "Ver mais" to expand preview
-  gsap.utils.toArray('.work-card').forEach(card => {
+  const allCards = gsap.utils.toArray('.work-card');
+  const closeAll = [];
+  allCards.forEach(card => {
     const trigger = card.querySelector('.work-card-trigger');
     const expand = card.querySelector('.work-card-expand');
     const inner = card.querySelector('.work-card-expand-inner');
@@ -191,7 +218,10 @@ function initScrollAnimations() {
 
     let open = false;
 
-    trigger.addEventListener('mouseenter', () => reveal());
+    trigger.addEventListener('mouseenter', () => {
+      closeAll.forEach(fn => fn());
+      reveal();
+    });
     trigger.addEventListener('mouseleave', (e) => {
       if (expand.contains(e.relatedTarget)) return;
       hide();
@@ -227,13 +257,15 @@ function initScrollAnimations() {
         });
       });
     }
+
+    closeAll.push(hide);
   });
 
-  gsap.to('.statement-title', {
-    y: 0, opacity: 1, duration: 1,
+  gsap.to('.statement-subtitle', {
+    y: 0, opacity: 1, duration: 1.2,
     ease: 'power3.out',
     scrollTrigger: {
-      trigger: '.statement-title', start: 'top 85%', end: 'top 55%',
+      trigger: '.statement-subtitle', start: 'top 90%', end: 'top 60%',
       toggleActions: 'play none none none',
     }
   });
@@ -439,13 +471,16 @@ const i18n = {
     pt: 'Fernanda Zorzo — Direção de Arte & Branding',
     en: 'Fernanda Zorzo — Art Direction & Branding'
   },
+  'nav-home': { pt: 'Home', en: 'Home' },
   'nav-work': { pt: 'Projetos', en: 'Projects' },
   'nav-services': { pt: 'Serviços', en: 'Services' },
-  'nav-about': { pt: 'Sobre', en: 'About' },
+  'nav-about': { pt: 'Sobre mim', en: 'About me' },
   'nav-contact': { pt: 'Contato', en: 'Contact' },
-  'hero-label': { pt: 'Fernanda Zorzo', en: 'Fernanda Zorzo' },
-  'hero-role1': { pt: 'Direção de Arte', en: 'Art Direction' },
-  'hero-scroll': { pt: 'Scroll', en: 'Scroll' },
+  'header-cta': { pt: 'Vamos conversar', en: "Let's talk" },
+  'hero-welcome': { pt: 'bem-vindo!', en: 'welcome!' },
+  'hero-title': { pt: 'Construindo marcas com propósito e personalidade.', en: 'Building brands with purpose and personality.' },
+  'hero-subtitle': { pt: 'Direção de arte, branding e identidades visuais que unem estratégia, conceito e sensibilidade estética.', en: 'Art direction, branding and visual identities that unite strategy, concept and aesthetic sensibility.' },
+  'hero-scroll': { pt: 'role para explorar', en: 'scroll to explore' },
   'services-title': { pt: 'Serviços', en: 'Services' },
   'serv-art-title': { pt: 'Direção de Arte', en: 'Art Direction' },
   'serv-art-desc': { pt: 'Criação de conceitos visuais que orientam a comunicação de marcas, campanhas e projetos, garantindo unidade estética e narrativas visuais que fortalecem o posicionamento.', en: 'Creation of visual concepts that guide the communication of brands, campaigns and projects, ensuring aesthetic unity and visual narratives that strengthen positioning.' },
@@ -481,6 +516,7 @@ const i18n = {
   'proj4-tag': { pt: 'Estamparia', en: 'Pattern Design' },
   'proj4-desc': { pt: 'Criação de uma estampa autoral inspirada nas referências visuais da Bahia — cores, texturas e elementos culturais traduzidos em um padrão contemporâneo com aplicações em superfícies de moda praia.', en: 'Creation of an original pattern inspired by Bahian visual references — colors, textures and cultural elements translated into a contemporary print with applications on beachwear surfaces.' },
   'statement-title': { pt: 'Direção & Design', en: 'Direction & Design' },
+  'about-title': { pt: 'Sobre mim', en: 'About me' },
   'statement-toggle': { pt: 'Ler mais', en: 'Read more' },
   'statement-toggle-less': { pt: 'Mostrar menos', en: 'Show less' },
   'statement-bio-1': { pt: 'Olá! Me chamo Fernanda Zorzo e sou diretora de arte e designer visual brasileira. Desenvolvo identidades visuais e projetos de comunicação que unem estratégia, conceito e direção criativa para construir marcas com personalidade.', en: "Hi! I'm Fernanda Zorzo, a Brazilian art director and visual designer. I develop visual identities and communication projects that unite strategy, concept and creative direction to build brands with personality." },
@@ -612,7 +648,7 @@ function initCarousel() {
   });
 
   syncDots();
-  startAuto();
+  if (window.innerWidth <= 768) { startAuto(); }
 }
 
 function setLanguage(lang) {
@@ -630,3 +666,15 @@ function setLanguage(lang) {
 document.querySelectorAll('.lang-btn').forEach(btn => {
   btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
 });
+
+// ─── FOOTER LOGO SWAP ───
+(function() {
+  var img = document.getElementById('footerLogo');
+  if (!img) return;
+  var logos = ['img/Ativo19logo.webp', 'img/Ativo18logo.webp'];
+  var i = 0;
+  setInterval(function() {
+    i = (i + 1) % logos.length;
+    img.src = logos[i];
+  }, 1000);
+})();
