@@ -681,12 +681,10 @@ section { position: relative; }
     transition: opacity .4s var(--ease-smooth);
   }
   .service-row.active .service-row-mobile-dot::before { opacity: 1; }
-  .service-row-mobile-dot::after {
+  .service-row::after {
     content: '';
     position: absolute;
-    top: 50%; transform: translateY(-50%);
-    left: calc(100% + 10px);
-    width: 180px;
+    top: 20px; left: 34px; right: 20px;
     height: 1px;
     background: var(--white); opacity: .2;
     pointer-events: none;
