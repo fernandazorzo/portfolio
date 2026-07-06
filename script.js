@@ -566,6 +566,13 @@ function initCarousel() {
   var total = dots.length;
   var autoTimer, resumeTimer;
   var isPaused = false;
+  var isMobile = window.innerWidth <= 768;
+
+  // Infinite loop on mobile: clone first card at end
+  if (isMobile) {
+    var firstCard = track.querySelector('.service-row');
+    if (firstCard) track.appendChild(firstCard.cloneNode(true));
+  }
 
   function syncDots() {
     var cards = track.querySelectorAll('.service-row');
@@ -577,8 +584,19 @@ function initCarousel() {
         active = i;
       }
     });
+    // Highlight active service row
+    cards.forEach(function(c) { c.classList.remove('active'); });
+    if (cards[active]) cards[active].classList.add('active');
+    // Update dots (map cloned index to original)
+    var dotIndex = active >= total ? 0 : active;
     dots.forEach(function(d) { d.classList.remove('active'); });
-    if (dots[active]) dots[active].classList.add('active');
+    if (dots[dotIndex]) dots[dotIndex].classList.add('active');
+    // Infinite wrap on mobile: jump from clone to first card
+    if (isMobile && cards.length > total && active >= total) {
+      track.style.scrollBehavior = 'auto';
+      track.scrollLeft = 0;
+      requestAnimationFrame(function() { track.style.scrollBehavior = ''; });
+    }
   }
 
   function scrollTo(index) {
@@ -590,7 +608,13 @@ function initCarousel() {
   function nextSlide() {
     var activeDot = document.querySelector('.carousel-dot.active');
     var cur = activeDot ? parseInt(activeDot.dataset.index) : 0;
-    scrollTo((cur + 1) % total);
+    if (isMobile && cur === total - 1) {
+      // Scroll forward to clone for seamless infinite
+      var cards = track.querySelectorAll('.service-row');
+      if (cards[total]) track.scrollTo({ left: cards[total].offsetLeft, behavior: 'smooth' });
+    } else {
+      scrollTo((cur + 1) % total);
+    }
   }
 
   function prevSlide() {
