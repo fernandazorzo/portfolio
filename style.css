@@ -645,16 +645,17 @@ section { position: relative; }
   .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--light-gray); transition: background .4s var(--ease-smooth), transform .4s var(--ease-smooth); cursor: pointer; }
   .carousel-dot.active { background: var(--accent); transform: scale(1.35); }
   .services-track {
-    display: flex; gap: 20px; padding: 0 10px;
+    display: flex; gap: 0; padding: 0;
     overflow-x: auto; scroll-snap-type: x mandatory;
     scrollbar-width: none; -ms-overflow-style: none;
     scroll-behavior: smooth; -webkit-overflow-scrolling: touch; flex: 1;
   }
   .services-track::-webkit-scrollbar { display: none; }
   .service-row {
-    flex-shrink: 0; width: calc(100vw - 60px); max-width: none;
+    flex-shrink: 0; width: 100vw; max-width: none;
     grid-template-columns: 1fr; gap: 16px; padding: 28px 24px;
     position: relative;
+    scroll-snap-align: start; scroll-snap-stop: always;
   }
   .service-row-num {
     position: absolute; top: 16px; right: 16px;
