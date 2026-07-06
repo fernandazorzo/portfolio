@@ -336,7 +336,7 @@ section { position: relative; }
   .hero-bottom { bottom: 32vh; padding: 0 20px; width: 100%; left: 0; transform: none; max-width: 100%; text-align: center; }
   .hero-title { font-size: 1rem; overflow-wrap: break-word; }
   .hero-subtitle { font-size: .75rem; white-space: normal; overflow-wrap: break-word; }
-  .hero-scroll { left: 20px; bottom: 8vh; }
+  .hero-scroll { left: 50%; transform: translateX(-50%); bottom: 14vh; }
   .work-grid { padding: 0 20px; }
   .footer-logo-main { height: 100px; }
   .footer-bottom { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
