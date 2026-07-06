@@ -567,6 +567,7 @@ function initCarousel() {
   var autoTimer, resumeTimer;
   var isPaused = false;
   var isMobile = window.innerWidth <= 768;
+  var currentSlide = 0;
 
   // Infinite loop on mobile: clone first card at end
   if (isMobile) {
@@ -588,21 +589,24 @@ function initCarousel() {
       var right = left + card.offsetWidth;
       var viewLeft = track.scrollLeft;
       var viewRight = viewLeft + track.offsetWidth;
-      if (left >= viewLeft && right <= viewRight + 1) {
+      if (left >= viewLeft - 1 && right <= viewRight + 2) {
         active = i;
       }
     });
+    // Keep previous slide during transitions
+    if (active >= 0) currentSlide = active;
     // Highlight active service row
     cards.forEach(function(c) { c.classList.remove('active'); });
-    if (active >= 0 && cards[active]) cards[active].classList.add('active');
+    if (cards[currentSlide]) cards[currentSlide].classList.add('active');
     // Update dots (map cloned index to original)
-    var dotIndex = active >= total ? 0 : active;
+    var dotIndex = currentSlide >= total ? 0 : currentSlide;
     dots.forEach(function(d) { d.classList.remove('active'); });
-    if (active >= 0 && dots[dotIndex]) dots[dotIndex].classList.add('active');
+    if (dots[dotIndex]) dots[dotIndex].classList.add('active');
     // Infinite wrap on mobile: jump from clone to first card
-    if (isMobile && cards.length > total && active >= total) {
+    if (isMobile && cards.length > total && currentSlide >= total) {
       track.style.scrollBehavior = 'auto';
       track.scrollLeft = 0;
+      currentSlide = 0;
       requestAnimationFrame(function() { track.style.scrollBehavior = ''; });
     }
   }
@@ -614,10 +618,8 @@ function initCarousel() {
   }
 
   function nextSlide() {
-    var activeDot = document.querySelector('.carousel-dot.active');
-    var cur = activeDot ? parseInt(activeDot.dataset.index) : 0;
+    var cur = currentSlide;
     if (isMobile && cur === total - 1) {
-      // Scroll forward to clone for seamless infinite
       var cards = track.querySelectorAll('.service-row');
       if (cards[total]) track.scrollTo({ left: cards[total].offsetLeft, behavior: 'smooth' });
     } else {
@@ -626,8 +628,7 @@ function initCarousel() {
   }
 
   function prevSlide() {
-    var activeDot = document.querySelector('.carousel-dot.active');
-    var cur = activeDot ? parseInt(activeDot.dataset.index) : 0;
+    var cur = currentSlide;
     scrollTo((cur - 1 + total) % total);
   }
 
