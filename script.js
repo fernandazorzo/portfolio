@@ -582,21 +582,23 @@ function initCarousel() {
 
   function syncDots() {
     var cards = track.querySelectorAll('.service-row');
-    var center = track.scrollLeft + track.offsetWidth / 2;
-    var active = 0;
+    var active = -1;
     cards.forEach(function(card, i) {
-      var cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      if (Math.abs(cardCenter - center) < Math.abs(cards[active].offsetLeft + cards[active].offsetWidth / 2 - center)) {
+      var left = card.offsetLeft;
+      var right = left + card.offsetWidth;
+      var viewLeft = track.scrollLeft;
+      var viewRight = viewLeft + track.offsetWidth;
+      if (left >= viewLeft && right <= viewRight + 1) {
         active = i;
       }
     });
     // Highlight active service row
     cards.forEach(function(c) { c.classList.remove('active'); });
-    if (cards[active]) cards[active].classList.add('active');
+    if (active >= 0 && cards[active]) cards[active].classList.add('active');
     // Update dots (map cloned index to original)
     var dotIndex = active >= total ? 0 : active;
     dots.forEach(function(d) { d.classList.remove('active'); });
-    if (dots[dotIndex]) dots[dotIndex].classList.add('active');
+    if (active >= 0 && dots[dotIndex]) dots[dotIndex].classList.add('active');
     // Infinite wrap on mobile: jump from clone to first card
     if (isMobile && cards.length > total && active >= total) {
       track.style.scrollBehavior = 'auto';
