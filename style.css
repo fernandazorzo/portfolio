@@ -662,6 +662,7 @@ section { position: relative; }
   .service-row-num { display: none !important; }
   .service-row-line { display: none !important; }
   .service-row-content { padding-top: 28px; }
+  .service-row[data-index="0"] .service-row-items li:nth-child(4) { flex-basis: 100%; }
   .service-row-mobile-dot {
     position: absolute; top: 16px; left: 16px;
     width: 8px; height: 8px; border-radius: 50%;
