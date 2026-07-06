@@ -653,15 +653,16 @@ section { position: relative; }
   .services-track::-webkit-scrollbar { display: none; }
   .service-row {
     flex-shrink: 0; width: 100vw; max-width: none;
-    grid-template-columns: 1fr; gap: 16px; padding: 28px 24px;
+    grid-template-columns: 1fr; gap: 16px; padding: 28px 20px;
     position: relative;
     scroll-snap-align: start; scroll-snap-stop: always;
   }
   .service-row-num {
-    position: absolute; top: 16px; right: 16px;
+    position: absolute; top: 16px; right: 12px;
     flex-direction: column; gap: 0; padding: 0;
   }
   .service-row-line { display: none; }
+  .service-row-content { padding-right: 20px; }
   .services .service-row-desc,
   .services .service-row-items li,
   .service-row-title { opacity: 1 !important; color: var(--white); }
