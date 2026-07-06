@@ -180,15 +180,27 @@ header.visible { opacity: 1; pointer-events: auto; }
   .header-menu-btn {
     display: flex; flex-direction: column; gap: 5px;
     background: none; border: none; cursor: pointer;
-    width: 28px; height: 24px; position: relative; padding: 0;
+    width: 44px; height: 44px; position: relative; padding: 0;
+    align-items: center; justify-content: center;
   }
   .header-menu-btn span {
-    display: block; width: 100%; height: 2px;
+    display: block; width: 28px; height: 2px;
     background: var(--accent); border-radius: 2px;
     transition: transform .4s var(--ease-smooth);
   }
   .header-menu-btn.open span:first-child { transform: translateY(7px) rotate(45deg); }
   .header-menu-btn.open span:last-child { transform: translateY(-7px) rotate(-45deg); }
+  .lang-btn { padding: 8px 10px; }
+  .carousel-dot { width: 12px; height: 12px; }
+  .carousel-dots { gap: 14px; margin-top: 8px; }
+  .work-card-btn { padding: 10px 14px; font-size: 13px; }
+  .work-card-trigger { padding: 12px 20px; font-size: 13px; }
+  .statement-toggle { padding: 10px 4px 10px 0; font-size: 13px; }
+  .about-modal-content { padding: 40px 24px; }
+  .about-modal-close { width: 44px; height: 44px; top: 8px; right: 8px; }
+  .iv-body { padding: 20px; }
+  .iv-btn { width: 44px; height: 44px; }
+  .full-menu-inner { gap: 32px; padding: 24px; }
 }
 
 /* FULL MENU */
@@ -198,6 +210,7 @@ header.visible { opacity: 1; pointer-events: auto; }
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   display: flex; align-items: center; justify-content: center;
   visibility: hidden;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
 }
 .full-menu.open { visibility: visible; }
 .full-menu-inner {
@@ -319,10 +332,13 @@ section { position: relative; }
   .hero { min-height: 100dvh; padding: 80px 20px 40px; }
   .hero-welcome { top: 20vh; left: 50%; transform: translateX(-50%); font-size: 12px; }
   .hero-logo { max-width: 280px; width: 75vw; }
-  .hero-bottom { bottom: 10vh; padding: 0; width: 100%; left: 20px; }
+  .hero-bottom { bottom: 10vh; padding: 0; width: 100%; left: 20px; transform: none; }
   .hero-title { font-size: 1.1rem; }
-  .hero-subtitle { font-size: .78rem; }
+  .hero-subtitle { font-size: .78rem; white-space: normal; }
   .hero-scroll { left: 20px; bottom: 8vh; }
+  .work-grid { padding: 0 20px; }
+  .footer-logo-main { height: 100px; }
+  .footer-bottom { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
 }
 
 /* ─── SECTION HEADERS ─── */
@@ -531,7 +547,7 @@ section { position: relative; }
 @media (max-width: 768px) {
   .work-card-cover { height: 160px; }
   .work-card-front { padding: 16px; gap: 12px; }
-  .work-card-trigger { padding: 10px 16px; }
+  .work-card-trigger { padding: 12px 20px; }
   .work-card-expand-inner { padding: 0 16px 16px; }
 }
 
