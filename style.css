@@ -332,7 +332,7 @@ section { position: relative; }
   .hero { min-height: 100dvh; padding: 80px 20px 40px; }
   .hero-welcome { top: 20vh; left: 50%; transform: translateX(-50%); font-size: 12px; }
   .hero-logo { max-width: 280px; width: 75vw; }
-  .hero-bottom { bottom: 10vh; padding: 0 20px; width: 100%; left: 0; transform: none; max-width: 100%; text-align: center; }
+  .hero-bottom { bottom: 18vh; padding: 0 20px; width: 100%; left: 0; transform: none; max-width: 100%; text-align: center; }
   .hero-title { font-size: 1rem; overflow-wrap: break-word; }
   .hero-subtitle { font-size: .75rem; white-space: normal; overflow-wrap: break-word; }
   .hero-scroll { left: 20px; bottom: 8vh; }
