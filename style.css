@@ -661,7 +661,7 @@ section { position: relative; }
   .service-row-num { display: none !important; }
   .service-row-line { display: none !important; }
   .service-row-mobile-dot {
-    position: absolute; top: 16px; left: 12px;
+    position: absolute; top: 8px; left: 12px;
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--white); display: block; z-index: 2;
     pointer-events: none;
