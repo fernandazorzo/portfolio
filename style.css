@@ -652,7 +652,7 @@ section { position: relative; }
   }
   .services-track::-webkit-scrollbar { display: none; }
   .service-row {
-    flex-shrink: 0; width: 100vw; max-width: none;
+    flex: 0 0 100%;
     position: relative;
     scroll-snap-align: start; scroll-snap-stop: always;
     display: grid;
