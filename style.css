@@ -824,7 +824,7 @@ section { position: relative; }
   border-radius: 12px; padding: 20px 24px;
 }
 .footer-col-right { align-items: center; justify-content: center; }
-.footer-logo-main { height: 200px; width: auto; opacity: 1; }
+.footer-logo-main { height: 140px; width: auto; opacity: 1; }
 .footer-label {
   font-size: 11px; letter-spacing: .12em; text-transform: lowercase;
   color: var(--accent-subtle); margin-bottom: 4px;
