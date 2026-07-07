@@ -549,7 +549,7 @@ section { position: relative; }
 @media (max-width: 768px) {
   .work-card { max-width: 100%; }
   .work-card-cover { height: 160px; }
-  .work-card-front { padding: 16px; gap: 12px; align-items: center; text-align: center; flex-direction: column; }
+  .work-card-front { padding: 16px; gap: 12px; }
   .work-card-trigger { padding: 12px 20px; }
   .work-card-expand-inner { padding: 0 16px 16px; }
   .work { padding: 0 0 40px; }
@@ -851,6 +851,6 @@ section { position: relative; }
 @media (max-width: 768px) {
   .footer-inner { padding: 40px 20px 24px; }
   .footer-cta-marquee { margin-bottom: 32px; }
-  .footer-main { flex-direction: column; gap: 40px; margin-bottom: 48px; }
+  .footer-main { flex-direction: column; gap: 40px; margin-bottom: 48px; align-items: center; }
   .footer-left { flex-direction: row; gap: 40px; }
 }
