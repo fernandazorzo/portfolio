@@ -369,7 +369,7 @@ section { position: relative; }
 .work-grid { display: flex; flex-wrap: wrap; gap: 24px; padding: 0 80px; justify-content: center; }
 
 .work-card {
-  width: 100%; max-width: 720px;
+  width: 100%; max-width: 960px;
   border-radius: 12px;
   overflow: hidden;
   background: var(--white);
