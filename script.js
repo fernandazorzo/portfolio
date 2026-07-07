@@ -704,7 +704,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 (function() {
   var img = document.getElementById('footerLogo');
   if (!img) return;
-  var logos = ['img/Ativo19logo.webp', 'img/Ativo18logo.webp'];
+  var logos = ['img/Ativo22logo.webp', 'img/Ativo21logo.webp'];
   var i = 0;
   setInterval(function() {
     i = (i + 1) % logos.length;
