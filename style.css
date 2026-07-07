@@ -127,8 +127,10 @@ header.visible { opacity: 1; pointer-events: auto; }
 
 .header-lang {
   display: flex; align-items: center; gap: 6px; pointer-events: auto;
-  margin-left: auto; margin-right: 24px;
+  order: 2; margin-left: 24px;
 }
+.header-left { order: 0; flex: 0; }
+.header-right { order: 1; }
 .header-lang .lang-btn {
   background: none; border: none; cursor: pointer;
   font-family: Helvetica, Arial, sans-serif;
@@ -177,7 +179,7 @@ header.visible { opacity: 1; pointer-events: auto; }
 
 @media (max-width: 768px) {
   header { padding: 16px 20px; }
-  .header-lang { flex: 1; margin-left: 0; margin-right: 0; }
+  .header-lang { flex: 1; margin-left: 0; margin-right: 0; order: 0; }
   .header-left { position: absolute; left: 50%; transform: translateX(-50%); flex: 0; }
   .header-right { flex: 0; }
   .header-nav { display: none; }
