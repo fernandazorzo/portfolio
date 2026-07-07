@@ -852,5 +852,5 @@ section { position: relative; }
   .footer-inner { padding: 40px 20px 24px; }
   .footer-cta-marquee { margin-bottom: 32px; }
   .footer-main { flex-direction: column; gap: 40px; margin-bottom: 48px; }
-  .footer-left { flex-direction: column; gap: 40px; }
+  .footer-left { flex-direction: row; gap: 40px; }
 }
