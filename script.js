@@ -709,6 +709,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
     ? ['img/Ativo22logo.webp', 'img/Ativo21logo.webp']
     : ['img/Ativo19logo.webp', 'img/Ativo18logo.webp'];
   var i = 0;
+  img.src = logos[0];
   setInterval(function() {
     i = (i + 1) % logos.length;
     img.src = logos[i];
