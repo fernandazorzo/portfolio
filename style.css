@@ -545,7 +545,7 @@ section { position: relative; }
 
 @media (max-width: 1024px) {
   .work { padding: 0 20px 40px; }
-  .work-card { width: 100%; }
+  .work-card { width: 100%; max-width: 100%; }
 }
 @media (max-width: 768px) {
   .work-card { max-width: 100%; }
