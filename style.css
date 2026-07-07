@@ -848,9 +848,10 @@ section { position: relative; }
 .back-to-top:hover { gap: 12px; }
 
 @media (max-width: 768px) {
-  .footer-inner { padding: 40px 20px 24px; }
   .footer-cta-marquee { margin-bottom: 32px; }
-  .footer-main { flex-direction: column; gap: 40px; margin-bottom: 48px; align-items: center; }
+  .footer-main { flex-direction: column; gap: 40px; margin-bottom: 0; align-items: center; }
   .footer-left { flex-direction: row; gap: 40px; }
   .footer-logo-main { height: 160px; width: 100vw; max-width: none; object-fit: cover; }
+  .footer-inner { padding: 40px 20px 0; }
+  .footer-bottom { padding-top: 0; border-top: none; }
 }
