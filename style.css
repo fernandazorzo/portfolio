@@ -553,7 +553,7 @@ section { position: relative; }
   .work-card-trigger { padding: 12px 20px; }
   .work-card-expand-inner { padding: 0 16px 16px; }
   .work { padding: 0 0 40px; }
-  .work-grid { padding: 0; }
+  .work-grid { padding: 0 16px; }
 }
 
 /* ─── SERVICES ─── */
