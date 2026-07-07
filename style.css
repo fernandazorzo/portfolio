@@ -278,25 +278,6 @@ section { position: relative; }
 }
 
 /* Lang toggle on hero */
-.hero-lang {
-  position: absolute; top: 12vh; left: 80px;
-  display: none; align-items: center; gap: 6px;
-  z-index: 10;
-}
-.hero-lang .lang-btn {
-  background: none; border: none; cursor: pointer;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 12px; font-weight: 500; letter-spacing: .04em;
-  color: var(--accent); opacity: .5;
-  padding: 4px 6px; border-radius: 4px;
-  transition: opacity .3s;
-}
-.hero-lang .lang-btn:hover { opacity: 1; }
-.hero-lang .lang-btn.active { opacity: 1; }
-.hero-lang .lang-divider {
-  display: block; width: 1px; height: 12px;
-  background: var(--accent); opacity: .3;
-}
 
 /* Center logo */
 .hero-center {
@@ -358,7 +339,6 @@ section { position: relative; }
   .hero-subtitle { font-size: .75rem; white-space: normal; overflow-wrap: break-word; }
   .mobile-break { display: inline; }
   .hero-scroll { left: 50%; transform: translateX(-50%); bottom: 14vh; }
-  .hero-lang { display: flex; top: 12vh; left: 20px; }
   .footer-bottom { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
 }
 
