@@ -129,7 +129,7 @@ header.visible { opacity: 1; pointer-events: auto; }
   display: flex; align-items: center; gap: 6px; pointer-events: auto;
   order: 2; margin-left: 24px;
 }
-.header-left { order: 0; flex: 0; }
+.header-left { order: 0; flex: none; }
 .header-right { order: 1; }
 .header-lang .lang-btn {
   background: none; border: none; cursor: pointer;
