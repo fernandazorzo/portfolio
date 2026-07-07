@@ -299,11 +299,11 @@ function initScrollAnimations() {
     }
   });
 
-  gsap.from('.footer-bottom', {
+  gsap.from('.footer-bottom, .footer-bottom-mobile', {
     y: 20, opacity: 0, duration: 0.8,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: '.footer-bottom', start: 'top 90%',
+      trigger: '.footer-bottom, .footer-bottom-mobile', start: 'top 90%',
       toggleActions: 'play none none none',
     }
   });
