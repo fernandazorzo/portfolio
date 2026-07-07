@@ -339,7 +339,6 @@ section { position: relative; }
   .hero-subtitle { font-size: .75rem; white-space: normal; overflow-wrap: break-word; }
   .mobile-break { display: inline; }
   .hero-scroll { left: 50%; transform: translateX(-50%); bottom: 14vh; }
-  .work-grid { padding: 0; }
   .footer-logo-main { height: 100px; }
   .footer-bottom { flex-direction: column; gap: 8px; align-items: center; text-align: center; }
 }
@@ -554,6 +553,7 @@ section { position: relative; }
   .work-card-trigger { padding: 12px 20px; }
   .work-card-expand-inner { padding: 0 16px 16px; }
   .work { padding: 0 0 40px; }
+  .work-grid { padding: 0; }
 }
 
 /* ─── SERVICES ─── */
