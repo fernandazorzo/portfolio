@@ -704,7 +704,10 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 (function() {
   var img = document.getElementById('footerLogo');
   if (!img) return;
-  var logos = ['img/Ativo22logo.webp', 'img/Ativo21logo.webp'];
+  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+  var logos = isMobile
+    ? ['img/Ativo22logo.webp', 'img/Ativo21logo.webp']
+    : ['img/Ativo19logo.webp', 'img/Ativo18logo.webp'];
   var i = 0;
   setInterval(function() {
     i = (i + 1) % logos.length;
