@@ -549,7 +549,7 @@ section { position: relative; }
 @media (max-width: 768px) {
   .work-card { max-width: 100%; }
   .work-card-cover { height: 160px; }
-  .work-card-front { padding: 16px; gap: 12px; }
+  .work-card-front { padding: 16px; gap: 12px; align-items: center; text-align: center; flex-direction: column; }
   .work-card-trigger { padding: 12px 20px; }
   .work-card-expand-inner { padding: 0 16px 16px; }
   .work { padding: 0 0 40px; }
