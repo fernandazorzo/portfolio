@@ -865,15 +865,15 @@ section { position: relative; }
     display: flex; flex-direction: column; gap: 24px; align-items: center;
   }
   .footer-cta-marquee { margin-bottom: 0; }
-  .footer-main { flex-direction: column; align-items: center; }
+  .footer-main { flex-direction: column; align-items: center; gap: 40px; }
   .footer-left { order: 1; flex-direction: row; gap: 40px; }
   .footer-bottom-mobile {
     display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center;
-    order: 2; padding-top: 24px; border-top: 1px solid rgba(143,132,187,.15); width: 100%;
+    order: 3; padding-top: 24px; border-top: 1px solid rgba(143,132,187,.15); width: 100%;
     font-size: 12px; color: var(--accent-subtle);
   }
   .footer-bottom-mobile .back-to-top { color: var(--accent-subtle); font-size: 12px; font-weight: 500; }
   .footer-bottom { display: none; }
-  .footer-col-right { order: 3; }
+  .footer-col-right { order: 2; }
   .footer-logo-main { height: 160px; width: 100vw; max-width: none; object-fit: cover; }
 }
