@@ -550,7 +550,8 @@ section { position: relative; }
 .presentation-strip img,
 .presentation-strip video {
   display: block; width: 100%; max-width: 900px; height: auto;
-  margin: 0; padding: 0; border: none; vertical-align: top;
+  margin: 0 0 -1px; padding: 0; border: none; vertical-align: top;
+  align-self: start;
 }
 
 @media (max-width: 1024px) {
