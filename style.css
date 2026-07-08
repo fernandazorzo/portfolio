@@ -543,13 +543,14 @@ section { position: relative; }
 }
 .presentation-close:hover { background: rgba(255,255,255,.18); }
 .presentation-strip {
-  display: flex; flex-direction: column; align-items: center; line-height: 0;
+  display: flex; flex-direction: column; line-height: 0;
   padding: 8vh 16px;
   width: 100%;
 }
 .presentation-strip img,
 .presentation-strip video {
   display: block; width: 100%; max-width: 900px; height: auto;
+  margin: 0; padding: 0;
 }
 
 @media (max-width: 1024px) {
