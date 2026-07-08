@@ -807,7 +807,7 @@ section { position: relative; }
 .footer-cta-marquee { overflow: hidden; width: 100%; margin-bottom: 48px; }
 .footer-cta-track {
   display: flex; align-items: center; gap: 24px;
-  animation: footerMarquee 12s linear infinite;
+  animation: footerMarquee 5s linear infinite;
 }
 .footer-cta-text {
   font-family: Helvetica, Arial, sans-serif; font-size: clamp(1rem, 2vw, 1.3rem);
@@ -818,7 +818,7 @@ section { position: relative; }
 
 @keyframes footerMarquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-25%); }
+  100% { transform: translateX(-50%); }
 }
 .footer-main {
   display: flex; justify-content: space-between; align-items: flex-start;
