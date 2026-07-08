@@ -564,7 +564,7 @@ section { position: relative; }
   .work-card-expand-inner { padding: 0 16px 16px; }
   .work { padding: 0 0 40px; }
   .work-grid { padding: 0 16px; align-items: center; }
-  .presentation-strip { padding: 4vh 12px; gap: 12px; }
+  .presentation-strip { padding: 4vh 0; }
   .presentation-strip img,
   .presentation-strip video { max-width: 100%; }
 }
