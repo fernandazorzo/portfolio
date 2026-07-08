@@ -806,8 +806,8 @@ section { position: relative; }
 .footer-inner { padding: 80px 80px 32px; }
 .footer-cta-marquee { overflow: hidden; width: 100%; margin-bottom: 48px; }
 .footer-cta-track {
-  display: flex; align-items: center; gap: 40px;
-  animation: footerMarquee 20s linear infinite;
+  display: flex; align-items: center; gap: 24px;
+  animation: footerMarquee 12s linear infinite;
 }
 .footer-cta-text {
   font-family: Helvetica, Arial, sans-serif; font-size: clamp(1rem, 2vw, 1.3rem);
