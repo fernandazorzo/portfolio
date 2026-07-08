@@ -864,7 +864,7 @@ section { position: relative; }
     display: flex; flex-direction: column; gap: 24px; align-items: center;
   }
   .footer-cta-marquee { margin-bottom: 0; }
-  .footer-main { flex-direction: column; align-items: center; gap: 40px; }
+  .footer-main { flex-direction: column; align-items: center; gap: 40px; margin-bottom: 0; }
   .footer-left { order: 1; flex-direction: row; gap: 40px; }
   .footer-bottom-mobile {
     display: flex; flex-direction: column; gap: 8px; align-items: center; text-align: center;
@@ -872,7 +872,7 @@ section { position: relative; }
     font-size: 12px; color: var(--accent-subtle);
   }
   .footer-bottom-mobile .back-to-top { color: var(--accent-subtle); font-size: 12px; font-weight: 500; }
-  .footer-bottom { display: none; }
+  .footer-bottom { display: none; height: 0; margin: 0; padding: 0; }
   .footer-col-right { order: 2; }
   .footer-logo-main { height: 160px; width: 100vw; max-width: none; object-fit: cover; }
 }
