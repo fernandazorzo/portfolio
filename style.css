@@ -860,7 +860,7 @@ section { position: relative; }
 
 @media (max-width: 768px) {
   .footer-inner {
-    padding: 40px 20px 0;
+    padding: 40px 20px 24px;
     display: flex; flex-direction: column; gap: 24px; align-items: center;
   }
   .footer-cta-marquee { margin-bottom: 0; }
