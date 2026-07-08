@@ -191,18 +191,17 @@ header.visible { opacity: 1; pointer-events: auto; }
   .header-nav { display: none; }
   .header-cta { display: none; }
   .header-menu-btn {
-    display: flex; flex-direction: column; gap: 5px;
-    background: none; border: none; cursor: pointer;
-    width: 44px; height: 44px; position: relative; padding: 0;
-    align-items: center; justify-content: center;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,.08); border: none; cursor: pointer;
+    width: 44px; height: 44px; border-radius: 50%;
+    color: #fff; padding: 0;
+    transition: background .2s;
   }
-  .header-menu-btn span {
-    display: block; width: 28px; height: 2px;
-    background: var(--accent); border-radius: 2px;
-    transition: transform .4s var(--ease-smooth);
-  }
-  .header-menu-btn.open span:first-child { transform: translateY(7px) rotate(45deg); }
-  .header-menu-btn.open span:last-child { transform: translateY(-7px) rotate(-45deg); }
+  .header-menu-btn:hover { background: rgba(255,255,255,.18); }
+  .header-menu-btn svg { display: block; }
+  .header-menu-btn .menu-icon-close { display: none; }
+  .header-menu-btn.open .menu-icon-burger { display: none; }
+  .header-menu-btn.open .menu-icon-close { display: block; }
   .lang-btn { padding: 8px 10px; }
   .carousel-dot { width: 12px; height: 12px; }
   .carousel-dots { gap: 14px; margin-top: 8px; }
