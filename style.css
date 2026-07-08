@@ -806,16 +806,15 @@ section { position: relative; }
 .footer-inner { padding: 80px 80px 32px; }
 .footer-cta-marquee { overflow: hidden; width: 100%; margin-bottom: 48px; }
 .footer-cta-track {
-  display: inline-flex; gap: 40px;
+  display: flex; align-items: center; gap: 40px;
   animation: footerMarquee 20s linear infinite;
 }
 .footer-cta-text {
   font-family: Helvetica, Arial, sans-serif; font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 700; line-height: 1.4; letter-spacing: -.01em;
   text-align: left; color: var(--white); white-space: nowrap;
-  display: inline-flex; align-items: center; gap: 20px;
 }
-.footer-emoji { width: 1em; height: 1em; vertical-align: middle; display: inline; flex-shrink: 0; }
+.footer-emoji { width: 1em; height: 1em; flex-shrink: 0; }
 
 @keyframes footerMarquee {
   0% { transform: translateX(0); }
