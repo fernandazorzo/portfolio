@@ -91,65 +91,133 @@
       <span class="section-number">01</span>
       <h2 class="section-title" data-i18n="services-title">Serviços</h2>
     </div>
-    <div class="services-list">
+    <div class="services-grid">
+      <button class="services-arrow services-arrow-prev" id="servicesPrev" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
       <div class="services-carousel">
-        <button class="carousel-arrow carousel-prev" aria-label="Previous">‹</button>
-        <div class="services-track">
-          <div class="service-row" data-index="0">
-            <div class="service-row-num">
-              <span class="service-row-number">.</span>
-              <div class="service-row-line"></div>
-            </div>
-            <div class="service-row-content">
-              <h3 class="service-row-title" data-i18n="serv-art-title">Direção de Arte</h3>
-              <p class="service-row-desc" data-i18n="serv-art-desc">Criação de conceitos visuais que orientam a comunicação de marcas, campanhas e projetos, garantindo unidade estética e narrativas visuais que fortalecem o posicionamento.</p>
-              <ul class="service-row-items">
-                <li data-i18n="serv-art-i1">criação de conceito criativo</li>
-                <li data-i18n="serv-art-i2">montagem de moodboards</li>
-                <li data-i18n="serv-art-i3">layouts diferentes de campanhas</li>
-                <li data-i18n="serv-art-i4">fotografia comercial e artística</li>
-              </ul>
-            </div>
+      <div class="services-track">
+        <article class="service-card">
+          <div class="service-card-head">
+            <span class="service-card-dot"></span>
+            <h3 class="service-card-title" data-i18n="serv-branding-title">Branding &amp;<br>Identidade Visual</h3>
           </div>
-          <div class="service-row" data-index="1">
-            <div class="service-row-num">
-              <span class="service-row-number">.</span>
-              <div class="service-row-line"></div>
-            </div>
-            <div class="service-row-content">
-              <h3 class="service-row-title" data-i18n="serv-id-title">Identidade Visual</h3>
-              <p class="service-row-desc" data-i18n="serv-id-desc">Desenvolvimento de identidades visuais estratégicas que traduzem a essência da marca em sistemas visuais consistentes, memoráveis e preparados para diferentes pontos de contato.</p>
-              <ul class="service-row-items">
-                <li data-i18n="serv-id-i1">estratégia e posicionamento de marca</li>
-                <li data-i18n="serv-id-i2">sistema de logo</li>
-                <li data-i18n="serv-id-i3">paleta de cores</li>
-                <li data-i18n="serv-id-i4">tipografia</li>
-              </ul>
-            </div>
+          <div class="service-card-body">
+            <p class="service-card-desc" data-i18n="serv-branding-desc">Desenvolvimento de identidades visuais estratégicas que traduzem a essência da marca em sistemas visuais consistentes, memoráveis e preparados para diferentes pontos de contato.</p>
+            <ul class="service-card-list">
+              <li data-i18n="serv-branding-i1">Branding</li>
+              <li data-i18n="serv-branding-i2">Identidade Visual</li>
+              <li data-i18n="serv-branding-i3">Estratégia de Marca</li>
+              <li data-i18n="serv-branding-i4">Sistemas Visuais</li>
+              <li data-i18n="serv-branding-i5">Diretrizes de Marca</li>
+              <li data-i18n="serv-branding-i6">Design de Logotipo</li>
+              <li data-i18n="serv-branding-i7">Design de Embalagem</li>
+              <li data-i18n="serv-branding-i8">Design Gráfico</li>
+            </ul>
           </div>
-          <div class="service-row" data-index="2">
-            <div class="service-row-num">
-              <span class="service-row-number">.</span>
-              <div class="service-row-line"></div>
-            </div>
-            <div class="service-row-content">
-              <h3 class="service-row-title" data-i18n="serv-social-title">Social Media</h3>
-              <p class="service-row-desc" data-i18n="serv-social-desc">Planejamento e desenvolvimento de conteúdos visuais para redes sociais, alinhando estratégia, identidade e consistência para fortalecer a presença digital da marca.</p>
-              <ul class="service-row-items">
-                <li data-i18n="serv-social-i1">planejamento de calendário</li>
-                <li data-i18n="serv-social-i2">edição de vídeos curtos focados em redes sociais</li>
-                <li data-i18n="serv-social-i3">identidade visual para redes sociais</li>
-                <li data-i18n="serv-social-i4">estratégias personalizadas</li>
-              </ul>
-            </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card-head">
+            <span class="service-card-dot"></span>
+            <h3 class="service-card-title" data-i18n="serv-artdirection-title">Direção<br>de Arte</h3>
           </div>
-        </div>
-        <button class="carousel-arrow carousel-next" aria-label="Next">›</button>
+          <div class="service-card-body">
+            <p class="service-card-desc" data-i18n="serv-artdirection-desc">Criação de conceitos visuais para marcas, campanhas e projetos editoriais, garantindo consistência estética e narrativas visuais fortes.</p>
+            <ul class="service-card-list">
+              <li data-i18n="serv-artdirection-i1">Direção Criativa</li>
+              <li data-i18n="serv-artdirection-i2">Direção de Arte</li>
+              <li data-i18n="serv-artdirection-i3">Conceitos Criativos</li>
+              <li data-i18n="serv-artdirection-i4">Key Visuals</li>
+              <li data-i18n="serv-artdirection-i5">Moodboards</li>
+              <li data-i18n="serv-artdirection-i6">Direção de Fotografia</li>
+              <li data-i18n="serv-artdirection-i7">Direção de Imagem com IA</li>
+              <li data-i18n="serv-artdirection-i8">Design Editorial</li>
+              <li data-i18n="serv-artdirection-i9">Retoque de Imagem</li>
+            </ul>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card-head">
+            <span class="service-card-dot"></span>
+            <h3 class="service-card-title" data-i18n="serv-social-title">Social<br>Media</h3>
+          </div>
+          <div class="service-card-body">
+            <p class="service-card-desc" data-i18n="serv-social-desc">Planejamento e desenvolvimento de conteúdos visuais alinhados ao posicionamento da marca, criando presença digital consistente e estratégica.</p>
+            <ul class="service-card-list">
+              <li data-i18n="serv-social-i1">Planejamento de Conteúdo</li>
+              <li data-i18n="serv-social-i2">Estratégia de Social Media</li>
+              <li data-i18n="serv-social-i3">Direção de Feed</li>
+              <li data-i18n="serv-social-i4">Design de Campanhas</li>
+              <li data-i18n="serv-social-i5">Design de Carrossel</li>
+              <li data-i18n="serv-social-i6">Criação de Reels</li>
+              <li data-i18n="serv-social-i7">Copywriting</li>
+              <li data-i18n="serv-social-i8">Templates de Conteúdo</li>
+            </ul>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card-head">
+            <span class="service-card-dot"></span>
+            <h3 class="service-card-title" data-i18n="serv-web-title">Web<br>Design</h3>
+          </div>
+          <div class="service-card-body">
+            <p class="service-card-desc" data-i18n="serv-web-desc">Design de páginas focadas em comunicação, experiência e conversão, desenvolvidas para apresentar marcas, produtos e serviços de forma clara e impactante.</p>
+            <ul class="service-card-list">
+              <li data-i18n="serv-web-i1">Landing Pages</li>
+              <li data-i18n="serv-web-i2">Sites Portfólio</li>
+              <li data-i18n="serv-web-i3">Sites One Page</li>
+              <li data-i18n="serv-web-i4">Design de UI</li>
+              <li data-i18n="serv-web-i5">Wireframes</li>
+              <li data-i18n="serv-web-i6">Protótipos Interativos</li>
+            </ul>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card-head">
+            <span class="service-card-dot"></span>
+            <h3 class="service-card-title" data-i18n="serv-research-title">Pesquisa<br>Criativa</h3>
+          </div>
+          <div class="service-card-body">
+            <p class="service-card-desc" data-i18n="serv-research-desc">Pesquisa estratégica para orientar decisões criativas, identificar oportunidades e construir marcas conectadas ao seu contexto cultural e de mercado.</p>
+            <ul class="service-card-list">
+              <li data-i18n="serv-research-i1">Coolhunting</li>
+              <li data-i18n="serv-research-i2">Pesquisa de Tendências</li>
+              <li data-i18n="serv-research-i3">Benchmarking</li>
+              <li data-i18n="serv-research-i4">Análise de Concorrentes</li>
+              <li data-i18n="serv-research-i5">Pesquisa de Público</li>
+              <li data-i18n="serv-research-i6">Posicionamento de Marca</li>
+              <li data-i18n="serv-research-i7">Estratégia Visual</li>
+              <li data-i18n="serv-research-i8">Consultoria Criativa</li>
+            </ul>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-card-head">
+            <span class="service-card-dot"></span>
+            <h3 class="service-card-title" data-i18n="serv-production-title">Produção<br>Criativa</h3>
+          </div>
+          <div class="service-card-body">
+            <p class="service-card-desc" data-i18n="serv-production-desc">Produção de materiais visuais que complementam a identidade da marca e fortalecem sua comunicação em diferentes canais.</p>
+            <ul class="service-card-list">
+              <li data-i18n="serv-production-i1">Fotografia Comercial</li>
+              <li data-i18n="serv-production-i2">Direção de Fotografia</li>
+              <li data-i18n="serv-production-i3">Edição de Imagem</li>
+              <li data-i18n="serv-production-i4">Produção Visual com IA</li>
+              <li data-i18n="serv-production-i5">Mockups</li>
+              <li data-i18n="serv-production-i6">Design de Apresentações</li>
+              <li data-i18n="serv-production-i7">Design de Catálogos</li>
+              <li data-i18n="serv-production-i8">Lookbooks</li>
+            </ul>
+          </div>
+        </article>
       </div>
-      <div class="carousel-dots">
-        <span class="carousel-dot active" data-index="0"></span>
-        <span class="carousel-dot" data-index="1"></span>
-        <span class="carousel-dot" data-index="2"></span>
+      </div>
+      <button class="services-arrow services-arrow-next" id="servicesNext" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+      <div class="services-dots">
+        <span class="services-dot active" data-index="0"></span>
+        <span class="services-dot" data-index="1"></span>
       </div>
     </div>
   </section>
@@ -178,6 +246,16 @@
           <div class="work-card-expand">
             <div class="work-card-expand-inner">
               <p class="work-card-desc" data-i18n="proj1-desc">A Zorzo é uma sorveteria familiar com décadas de história. Este projeto nasceu da necessidade de atualizar sua comunicação visual, preservando a essência artesanal e afetiva que faz parte da marca desde o início. O resultado é um sistema de identidade mais consistente, que equilibra nostalgia e contemporaneidade para fortalecer sua presença em diferentes pontos de contato e criar uma experiência mais memorável para o público.</p>
+              <div class="work-card-role">
+                <span class="work-card-role-label">Role</span>
+                <ul class="work-card-role-list">
+                  <li>Brand Strategy</li>
+                  <li>Art Direction</li>
+                  <li>Visual Identity</li>
+                  <li>Packaging Design</li>
+                  <li>Brand Guidelines</li>
+                </ul>
+              </div>
               <button class="work-card-btn" data-i18n="abrir-apres">Abrir apresentação</button>
             </div>
           </div>
@@ -200,6 +278,14 @@
           <div class="work-card-expand">
             <div class="work-card-expand-inner">
               <p class="work-card-desc" data-i18n="proj2-desc">Desenvolvida para a psicóloga Giovana Schneider, esta identidade visual foi inspirada na simbologia do sol como representação de renovação, acolhimento e evolução. O projeto traduz esses conceitos em um sistema visual completo, pensado para comunicar sua abordagem de forma sensível, consistente e autêntica em diferentes aplicações.</p>
+              <div class="work-card-role">
+                <span class="work-card-role-label">Role</span>
+                <ul class="work-card-role-list">
+                  <li>Art Direction</li>
+                  <li>Visual Identity</li>
+                  <li>Brand Strategy</li>
+                </ul>
+              </div>
               <button class="work-card-btn" data-i18n="abrir-apres">Abrir apresentação</button>
             </div>
           </div>
@@ -207,9 +293,10 @@
       </article>
 
       <article class="work-card" data-project="beijo-gummies"
-        data-images='["img/PROJETO-DOCILE-apresentacao_01.webp","img/PROJETO-DOCILE-apresentacao_02.webp","img/PROJETO-DOCILE-apresentacao_03.webp","img/PROJETO-DOCILE-apresentacao_04.webp","img/PROJETO-DOCILE-apresentacao_05.webp","img/PROJETO-DOCILE-apresentacao_06.webp","img/PROJETO-DOCILE-apresentacao_07.webp","img/PROJETO-DOCILE-apresentacao_08.webp","img/PROJETO-DOCILE-apresentacao_09.webp","img/PROJETO-DOCILE-apresentacao_10.webp","img/PROJETO-DOCILE-apresentacao_11.webp"]'>
+        data-images='["img/docile-desktop_01.jpg","img/docile-desktop_02.jpg","img/docile-desktop_03.jpg","img/docile-desktop_04.jpg","img/docile-desktop_05.jpg","img/docile-desktop_06.jpg","img/docile-desktop_07.jpg","img/docile-desktop_08.jpg","img/docile-desktop_09.png"]'
+        data-images-mobile='["img/docile-mobile_01.jpg","img/docile-mobile_02.jpg","img/docile-mobile_03.jpg","img/docile-mobile_04.jpg","img/docile-mobile_05.jpg","img/docile-mobile_06.jpg","img/docile-mobile_07.png"]'>
         <div class="work-card-cover">
-          <img src="img/PROJETO-DOCILE-apresentacao_01.webp" alt="Beijo Gummies" loading="lazy">
+          <img src="img/docile-desktop_01.jpg" alt="Beijo Gummies" loading="lazy">
         </div>
         <div class="work-card-front">
           <span class="work-card-num">03</span>
@@ -221,6 +308,14 @@
           <div class="work-card-expand">
             <div class="work-card-expand-inner">
               <p class="work-card-desc" data-i18n="proj3-desc">Este projeto conceitual propõe um redesign para a embalagem do Beijo Docile, explorando uma linguagem visual mais contemporânea e marcante para destacar o produto no ponto de venda. Da identidade ao novo formato da embalagem, cada escolha foi pensada para valorizar o produto, aumentar seu impacto na prateleira e criar uma experiência visual mais envolvente.</p>
+              <div class="work-card-role">
+                <span class="work-card-role-label">Role</span>
+                <ul class="work-card-role-list">
+                  <li>Packaging Design</li>
+                  <li>Art Direction</li>
+                  <li>Creative Concept</li>
+                </ul>
+              </div>
               <button class="work-card-btn" data-i18n="abrir-apres">Abrir apresentação</button>
             </div>
           </div>
@@ -243,6 +338,14 @@
           <div class="work-card-expand">
             <div class="work-card-expand-inner">
               <p class="work-card-desc" data-i18n="proj4-desc">Esta estampa autoral foi criada a partir de referências visuais da Bahia, traduzindo suas cores, texturas e elementos culturais em um padrão contemporâneo. O projeto explora a aplicação da estampa em superfícies de moda praia, buscando equilibrar identidade, expressão e versatilidade.</p>
+              <div class="work-card-role">
+                <span class="work-card-role-label">Role</span>
+                <ul class="work-card-role-list">
+                  <li>Surface Pattern Design</li>
+                  <li>Illustration</li>
+                  <li>Art Direction</li>
+                </ul>
+              </div>
               <button class="work-card-btn" data-i18n="abrir-apres">Abrir apresentação</button>
             </div>
           </div>

@@ -34,7 +34,7 @@ gsap.registerPlugin(ScrollTrigger);
     animateHero();
     initNoise();
     initScrollAnimations();
-    initCarousel();
+    initServiceCards();
     initStatementToggle();
 
     setTimeout(() => {
@@ -494,24 +494,65 @@ const i18n = {
   'hero-subtitle': { pt: 'Direção de arte, branding e identidades visuais que unem<span class="mobile-break"><br></span>estratégia, conceito e sensibilidade estética.', en: 'Art direction, branding and visual identities that unite<span class="mobile-break"><br></span>strategy, concept and aesthetic sensibility.' },
   'hero-scroll': { pt: 'role para explorar', en: 'scroll to explore' },
   'services-title': { pt: 'Serviços', en: 'Services' },
-  'serv-art-title': { pt: 'Direção de Arte', en: 'Art Direction' },
-  'serv-art-desc': { pt: 'Criação de conceitos visuais que orientam a comunicação de marcas, campanhas e projetos, garantindo unidade estética e narrativas visuais que fortalecem o posicionamento.', en: 'Creation of visual concepts that guide the communication of brands, campaigns and projects, ensuring aesthetic unity and visual narratives that strengthen positioning.' },
-  'serv-art-i1': { pt: 'criação de conceito criativo', en: 'creative concept creation' },
-  'serv-art-i2': { pt: 'montagem de moodboards', en: 'moodboard creation' },
-  'serv-art-i3': { pt: 'layouts diferentes de campanhas', en: 'different campaign layouts' },
-  'serv-art-i4': { pt: 'fotografia comercial e artística', en: 'commercial and artistic photography' },
-  'serv-id-title': { pt: 'Identidade Visual', en: 'Visual Identity' },
-  'serv-id-desc': { pt: 'Desenvolvimento de identidades visuais estratégicas que traduzem a essência da marca em sistemas visuais consistentes, memoráveis e preparados para diferentes pontos de contato.', en: 'Development of strategic visual identities that translate the brand essence into consistent, memorable visual systems ready for different touchpoints.' },
-  'serv-id-i1': { pt: 'estratégia e posicionamento de marca', en: 'brand strategy and positioning' },
-  'serv-id-i2': { pt: 'sistema de logo', en: 'logo system' },
-  'serv-id-i3': { pt: 'paleta de cores', en: 'color palette' },
-  'serv-id-i4': { pt: 'tipografia', en: 'typography' },
-  'serv-social-title': { pt: 'Social Media', en: 'Social Media' },
-  'serv-social-desc': { pt: 'Planejamento e desenvolvimento de conteúdos visuais para redes sociais, alinhando estratégia, identidade e consistência para fortalecer a presença digital da marca.', en: 'Planning and development of visual content for social media, aligning strategy, identity and consistency to strengthen the brand\'s digital presence.' },
-  'serv-social-i1': { pt: 'planejamento de calendário', en: 'calendar planning' },
-  'serv-social-i2': { pt: 'edição de vídeos curtos focados em redes sociais', en: 'short video editing focused on social media' },
-  'serv-social-i3': { pt: 'identidade visual para redes sociais', en: 'visual identity for social media' },
-  'serv-social-i4': { pt: 'estratégias personalizadas', en: 'personalized strategies' },
+  'serv-branding-title': { pt: 'Branding &<br>Identidade Visual', en: 'Branding &<br>Visual Identity' },
+  'serv-branding-desc': { pt: 'Desenvolvimento de identidades visuais estratégicas que traduzem a essência da marca em sistemas visuais consistentes, memoráveis e preparados para diferentes pontos de contato.', en: 'Development of strategic visual identities that translate the brand essence into consistent, memorable visual systems ready for different touchpoints.' },
+  'serv-branding-i1': { pt: 'Branding', en: 'Branding' },
+  'serv-branding-i2': { pt: 'Identidade Visual', en: 'Visual Identity' },
+  'serv-branding-i3': { pt: 'Estratégia de Marca', en: 'Brand Strategy' },
+  'serv-branding-i4': { pt: 'Sistemas Visuais', en: 'Visual Systems' },
+  'serv-branding-i5': { pt: 'Diretrizes de Marca', en: 'Brand Guidelines' },
+  'serv-branding-i6': { pt: 'Design de Logotipo', en: 'Logo Design' },
+  'serv-branding-i7': { pt: 'Design de Embalagem', en: 'Packaging Design' },
+  'serv-branding-i8': { pt: 'Design Gráfico', en: 'Print Design' },
+  'serv-artdirection-title': { pt: 'Direção<br>de Arte', en: 'Art<br>Direction' },
+  'serv-artdirection-desc': { pt: 'Criação de conceitos visuais para marcas, campanhas e projetos editoriais, garantindo consistência estética e narrativas visuais fortes.', en: 'Creation of visual concepts for brands, campaigns and editorial projects, ensuring aesthetic consistency and strong visual narratives.' },
+  'serv-artdirection-i1': { pt: 'Direção Criativa', en: 'Creative Direction' },
+  'serv-artdirection-i2': { pt: 'Direção de Arte', en: 'Art Direction' },
+  'serv-artdirection-i3': { pt: 'Conceitos Criativos', en: 'Creative Concepts' },
+  'serv-artdirection-i4': { pt: 'Key Visuals', en: 'Key Visuals' },
+  'serv-artdirection-i5': { pt: 'Moodboards', en: 'Moodboards' },
+  'serv-artdirection-i6': { pt: 'Direção de Fotografia', en: 'Photography Direction' },
+  'serv-artdirection-i7': { pt: 'Direção de Imagem com IA', en: 'AI Image Direction' },
+  'serv-artdirection-i8': { pt: 'Design Editorial', en: 'Editorial Design' },
+  'serv-artdirection-i9': { pt: 'Retoque de Imagem', en: 'Image Retouching' },
+  'serv-social-title': { pt: 'Social<br>Media', en: 'Social<br>Media' },
+  'serv-social-desc': { pt: 'Planejamento e desenvolvimento de conteúdos visuais alinhados ao posicionamento da marca, criando presença digital consistente e estratégica.', en: 'Planning and development of visual content aligned with brand positioning, creating a consistent and strategic digital presence.' },
+  'serv-social-i1': { pt: 'Planejamento de Conteúdo', en: 'Content Planning' },
+  'serv-social-i2': { pt: 'Estratégia de Social Media', en: 'Social Media Strategy' },
+  'serv-social-i3': { pt: 'Direção de Feed', en: 'Feed Direction' },
+  'serv-social-i4': { pt: 'Design de Campanhas', en: 'Campaign Design' },
+  'serv-social-i5': { pt: 'Design de Carrossel', en: 'Carousel Design' },
+  'serv-social-i6': { pt: 'Criação de Reels', en: 'Reels Ideation' },
+  'serv-social-i7': { pt: 'Copywriting', en: 'Copywriting' },
+  'serv-social-i8': { pt: 'Templates de Conteúdo', en: 'Content Templates' },
+  'serv-web-title': { pt: 'Web<br>Design', en: 'Web<br>Design' },
+  'serv-web-desc': { pt: 'Design de páginas focadas em comunicação, experiência e conversão, desenvolvidas para apresentar marcas, produtos e serviços de forma clara e impactante.', en: 'Page design focused on communication, experience and conversion, developed to present brands, products and services in a clear and impactful way.' },
+  'serv-web-i1': { pt: 'Landing Pages', en: 'Landing Pages' },
+  'serv-web-i2': { pt: 'Sites Portfólio', en: 'Portfolio Websites' },
+  'serv-web-i3': { pt: 'Sites One Page', en: 'One Page Websites' },
+  'serv-web-i4': { pt: 'Design de UI', en: 'UI Design' },
+  'serv-web-i5': { pt: 'Wireframes', en: 'Wireframes' },
+  'serv-web-i6': { pt: 'Protótipos Interativos', en: 'Interactive Prototypes' },
+  'serv-research-title': { pt: 'Pesquisa<br>Criativa', en: 'Creative<br>Research' },
+  'serv-research-desc': { pt: 'Pesquisa estratégica para orientar decisões criativas, identificar oportunidades e construir marcas conectadas ao seu contexto cultural e de mercado.', en: 'Strategic research to guide creative decisions, identify opportunities and build brands connected to their cultural and market context.' },
+  'serv-research-i1': { pt: 'Coolhunting', en: 'Coolhunting' },
+  'serv-research-i2': { pt: 'Pesquisa de Tendências', en: 'Trend Research' },
+  'serv-research-i3': { pt: 'Benchmarking', en: 'Benchmarking' },
+  'serv-research-i4': { pt: 'Análise de Concorrentes', en: 'Competitor Analysis' },
+  'serv-research-i5': { pt: 'Pesquisa de Público', en: 'Audience Research' },
+  'serv-research-i6': { pt: 'Posicionamento de Marca', en: 'Brand Positioning' },
+  'serv-research-i7': { pt: 'Estratégia Visual', en: 'Visual Strategy' },
+  'serv-research-i8': { pt: 'Consultoria Criativa', en: 'Creative Consulting' },
+  'serv-production-title': { pt: 'Produção<br>Criativa', en: 'Creative<br>Production' },
+  'serv-production-desc': { pt: 'Produção de materiais visuais que complementam a identidade da marca e fortalecem sua comunicação em diferentes canais.', en: 'Production of visual materials that complement brand identity and strengthen its communication across different channels.' },
+  'serv-production-i1': { pt: 'Fotografia Comercial', en: 'Commercial Photography' },
+  'serv-production-i2': { pt: 'Direção de Fotografia', en: 'Photography Direction' },
+  'serv-production-i3': { pt: 'Edição de Imagem', en: 'Image Editing' },
+  'serv-production-i4': { pt: 'Produção Visual com IA', en: 'AI Visual Production' },
+  'serv-production-i5': { pt: 'Mockups', en: 'Mockups' },
+  'serv-production-i6': { pt: 'Design de Apresentações', en: 'Presentation Design' },
+  'serv-production-i7': { pt: 'Design de Catálogos', en: 'Catalog Design' },
+  'serv-production-i8': { pt: 'Lookbooks', en: 'Lookbooks' },
   'work-title': { pt: 'Projetos', en: 'Projects' },
   'ver-mais': { pt: 'Ver mais', en: 'See more' },
   'abrir-apres': { pt: 'Abrir apresentação', en: 'Open presentation' },
@@ -568,133 +609,147 @@ function initStatementToggle() {
   });
 }
 
-// ─── SERVICES CAROUSEL ───
-function initCarousel() {
+// ─── SERVICES CARDS ANIMATION ───
+function initServiceCards() {
   var track = document.querySelector('.services-track');
-  var dots = document.querySelectorAll('.carousel-dot');
-  var prev = document.querySelector('.carousel-prev');
-  var next = document.querySelector('.carousel-next');
-  if (!track || !dots.length) return;
-  var total = dots.length;
-  var autoTimer, resumeTimer;
-  var isPaused = false;
-  var isMobile = window.innerWidth <= 768;
-  var currentSlide = 0;
+  var cards = gsap.utils.toArray('.service-card');
+  var dots = document.querySelectorAll('.services-dot');
+  if (!cards.length) return;
 
-  // Infinite loop on mobile: clone first card at end
-  if (isMobile) {
-    var firstCard = track.querySelector('.service-row');
-    if (firstCard) track.appendChild(firstCard.cloneNode(true));
-    // Inject visible dot into each service row
-    track.querySelectorAll('.service-row').forEach(function(row) {
-      var dot = document.createElement('span');
-      dot.className = 'service-row-mobile-dot';
-      row.appendChild(dot);
-    });
-  }
-
-  function syncDots() {
-    var cards = track.querySelectorAll('.service-row');
-    var active = -1;
-    cards.forEach(function(card, i) {
-      var left = card.offsetLeft;
-      var right = left + card.offsetWidth;
-      var viewLeft = track.scrollLeft;
-      var viewRight = viewLeft + track.offsetWidth;
-      if (left >= viewLeft - 1 && right <= viewRight + 2) {
-        active = i;
+  if (window.innerWidth > 768) {
+    gsap.to(cards, {
+      y: 0, opacity: 1, duration: 0.9,
+      stagger: 0.08,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.services-grid',
+        start: 'top 80%',
+        toggleActions: 'play none none none',
       }
     });
-    // Keep previous slide during transitions
-    if (active >= 0) currentSlide = active;
-    // Highlight active service row
-    cards.forEach(function(c) { c.classList.remove('active'); });
-    if (cards[currentSlide]) cards[currentSlide].classList.add('active');
-    // Update dots (map cloned index to original)
-    var dotIndex = currentSlide >= total ? 0 : currentSlide;
-    dots.forEach(function(d) { d.classList.remove('active'); });
-    if (dots[dotIndex]) dots[dotIndex].classList.add('active');
-    // Infinite wrap on mobile: jump from clone to first card
-    if (isMobile && cards.length > total && currentSlide >= total) {
-      track.style.scrollBehavior = 'auto';
-      track.scrollLeft = 0;
-      currentSlide = 0;
-      requestAnimationFrame(function() { track.style.scrollBehavior = ''; });
+    // Carousel: dot/arrow navigation
+    var currentPage = 0;
+    var totalPages = dots.length;
+    var prevBtn = document.getElementById('servicesPrev');
+    var nextBtn = document.getElementById('servicesNext');
+
+    var carousel = document.querySelector('.services-carousel');
+    function goToPage(index) {
+      currentPage = index;
+      var allCards = track.querySelectorAll('.service-card');
+      var targetCard = allCards[currentPage * 3];
+      if (!targetCard) return;
+      carousel.scrollLeft = targetCard.offsetLeft;
+      dots.forEach(function(d) { d.classList.remove('active'); });
+      if (dots[currentPage]) dots[currentPage].classList.add('active');
+      if (prevBtn) prevBtn.classList.toggle('hidden', currentPage === 0);
+      if (nextBtn) nextBtn.classList.toggle('hidden', currentPage === totalPages - 1);
     }
-  }
 
-  function scrollTo(index) {
-    var cards = track.querySelectorAll('.service-row');
-    if (!cards[index]) return;
-    track.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' });
-  }
-
-  function nextSlide() {
-    var cur = currentSlide;
-    if (isMobile && cur === total - 1) {
-      var cards = track.querySelectorAll('.service-row');
-      if (cards[total]) track.scrollTo({ left: cards[total].offsetLeft, behavior: 'smooth' });
-    } else {
-      scrollTo((cur + 1) % total);
-    }
-  }
-
-  function prevSlide() {
-    var cur = currentSlide;
-    scrollTo((cur - 1 + total) % total);
-  }
-
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(function() {
-      if (isPaused) return;
-      var rect = track.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-      nextSlide();
-    }, 3500);
-  }
-
-  function stopAuto() {
-    clearInterval(autoTimer);
-    clearTimeout(resumeTimer);
-  }
-
-  function pauseTemporarily() {
-    isPaused = true;
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(function() { isPaused = false; }, 5000);
-  }
-
-  var scrollTimer;
-  track.addEventListener('scroll', function() {
-    cancelAnimationFrame(scrollTimer);
-    scrollTimer = requestAnimationFrame(syncDots);
-    pauseTemporarily();
-  });
-
-  prev && prev.addEventListener('click', function() { prevSlide(); pauseTemporarily(); });
-  next && next.addEventListener('click', function() { nextSlide(); pauseTemporarily(); });
-
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      scrollTo(parseInt(dot.dataset.index));
-      pauseTemporarily();
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goToPage(parseInt(this.dataset.index));
+      });
     });
-  });
 
-  track.addEventListener('mouseenter', function() { isPaused = true; });
-  track.addEventListener('mouseleave', function() { setTimeout(function() { isPaused = false; }, 1000); });
+    if (prevBtn) prevBtn.addEventListener('click', function() {
+      if (currentPage > 0) goToPage(currentPage - 1);
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function() {
+      if (currentPage < totalPages - 1) goToPage(currentPage + 1);
+    });
 
-  document.addEventListener('keydown', function(e) {
-    var inView = track.getBoundingClientRect().top < window.innerHeight && track.getBoundingClientRect().bottom > 0;
-    if (!inView) return;
-    if (e.key === 'ArrowLeft') { prevSlide(); pauseTemporarily(); e.preventDefault(); }
-    if (e.key === 'ArrowRight') { nextSlide(); pauseTemporarily(); e.preventDefault(); }
-  });
+    // Hover card → glow corresponding dot
+    var cardsPerPage = 3;
+    cards.forEach(function(card, i) {
+      card.addEventListener('mouseenter', function() {
+        var page = Math.floor(i / cardsPerPage);
+        dots.forEach(function(d) { d.classList.remove('glow'); });
+        if (dots[page]) dots[page].classList.add('glow');
+      });
+      card.addEventListener('mouseleave', function() {
+        dots.forEach(function(d) { d.classList.remove('glow'); });
+      });
+    });
 
-  syncDots();
-  if (window.innerWidth <= 768) { startAuto(); }
+    requestAnimationFrame(function() { goToPage(0); });
+  } else {
+    // Mobile: infinite carousel (one card at a time, touch swipe)
+    cards.forEach(function(c) {
+      c.style.opacity = '1';
+      c.style.transform = 'none';
+      c.classList.remove('expanded');
+    });
+
+    var dotsContainer = document.querySelector('.services-dots');
+    dotsContainer.innerHTML = '';
+    for (var i = 0; i < cards.length; i++) {
+      var dot = document.createElement('div');
+      dot.className = 'services-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-index', i);
+      dotsContainer.appendChild(dot);
+    }
+    dots = dotsContainer.querySelectorAll('.services-dot');
+
+    var currentIndex = 0;
+    var totalCards = cards.length;
+    var carousel = document.querySelector('.services-carousel');
+    var startX = 0, isDragging = false;
+
+    function goToCard(index, animate) {
+      currentIndex = ((index % totalCards) + totalCards) % totalCards;
+      if (!animate) track.style.transition = 'none';
+      else track.style.transition = '';
+      track.style.transform = 'translateX(-' + (currentIndex * carousel.offsetWidth) + 'px)';
+      cards.forEach(function(c) { c.classList.remove('active'); });
+      if (cards[currentIndex]) cards[currentIndex].classList.add('active');
+      dots.forEach(function(d) { d.classList.remove('active'); });
+      if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+    }
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        goToCard(parseInt(this.dataset.index), true);
+      });
+    });
+
+    carousel.addEventListener('touchstart', function(e) {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    carousel.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      var diffX = e.touches[0].clientX - startX;
+      track.style.transform = 'translateX(' + (-currentIndex * carousel.offsetWidth + diffX) + 'px)';
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', function(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      var diffX = e.changedTouches[0].clientX - startX;
+      track.style.transition = '';
+      if (Math.abs(diffX) > 50) {
+        if (diffX < 0) goToCard(currentIndex + 1, true);
+        else goToCard(currentIndex - 1, true);
+      } else {
+        goToCard(currentIndex, true);
+      }
+    }, { passive: true });
+
+    goToCard(0, false);
+  }
 }
+
+window.addEventListener('resize', function() {
+  var cards = document.querySelectorAll('.service-card');
+  var track = document.querySelector('.services-track');
+  if (window.innerWidth > 768) {
+    cards.forEach(function(c) { c.classList.remove('expanded'); });
+    if (track) { track.style.transform = ''; track.style.transition = ''; }
+  }
+});
 
 function setLanguage(lang) {
   document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
@@ -717,7 +772,7 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
   var img = document.getElementById('footerLogo');
   if (!img) return;
   var logos = window.innerWidth <= 768
-    ? ['img/Ativo22logo.webp', 'img/Ativo21logo.webp']
+    ? ['img/Ativo21logo.webp', 'img/Ativo22logo.webp']
     : ['img/Ativo19logo.webp', 'img/Ativo18logo.webp'];
   var i = 0;
   img.src = logos[0];
