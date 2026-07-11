@@ -485,7 +485,7 @@ const i18n = {
   },
   'nav-home': { pt: 'Home', en: 'Home' },
   'nav-work': { pt: 'Projetos', en: 'Projects' },
-  'nav-services': { pt: 'Serviços', en: 'Services' },
+  'nav-services': { pt: 'Atuação', en: 'Expertise' },
   'nav-about': { pt: 'Sobre mim', en: 'About me' },
   'nav-contact': { pt: 'Contato', en: 'Contact' },
   'header-cta': { pt: 'Vamos conversar', en: "Let's talk" },
@@ -493,7 +493,7 @@ const i18n = {
   'hero-title': { pt: 'Construindo marcas com propósito e personalidade.', en: 'Building brands with purpose and personality.' },
   'hero-subtitle': { pt: 'Direção de arte, branding e identidades visuais que unem<span class="mobile-break"><br></span>estratégia, conceito e sensibilidade estética.', en: 'Art direction, branding and visual identities that unite<span class="mobile-break"><br></span>strategy, concept and aesthetic sensibility.' },
   'hero-scroll': { pt: 'role para explorar', en: 'scroll to explore' },
-  'services-title': { pt: 'Serviços', en: 'Services' },
+  'services-title': { pt: 'Minha Atuação', en: 'What I Do' },
   'serv-branding-title': { pt: 'Branding &<br>Identidade Visual', en: 'Branding &<br>Visual Identity' },
   'serv-branding-desc': { pt: 'Desenvolvimento de identidades visuais estratégicas que traduzem a essência da marca em sistemas visuais consistentes, memoráveis e preparados para diferentes pontos de contato.', en: 'Development of strategic visual identities that translate the brand essence into consistent, memorable visual systems ready for different touchpoints.' },
   'serv-branding-i1': { pt: 'Branding', en: 'Branding' },
@@ -617,16 +617,24 @@ function initServiceCards() {
   if (!cards.length) return;
 
   if (window.innerWidth > 768) {
-    gsap.to(cards, {
-      y: 0, opacity: 1, duration: 0.9,
-      stagger: 0.08,
-      ease: 'power3.out',
+    var tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.services-grid',
         start: 'top 80%',
         toggleActions: 'play none none none',
       }
     });
+    tl.to(cards, {
+      y: 0, opacity: 1, duration: 0.9,
+      stagger: 0.08, ease: 'power3.out',
+    });
+    if (window.innerWidth <= 1024) {
+      tl.to(cards, {
+        y: -6, duration: 2, ease: 'sine.inOut',
+        stagger: { each: 0.3, from: 'start' },
+        repeat: -1, yoyo: true,
+      }, '+=0.6');
+    }
     // Carousel: dot/arrow navigation
     var currentPage = 0;
     var totalPages = dots.length;

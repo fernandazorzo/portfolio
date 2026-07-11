@@ -370,7 +370,7 @@ section { position: relative; }
 }
 
 /* ─── WORK ─── */
-.work { padding: 80px 0 100px; margin: 0; background: #222222; color: var(--white); }
+.work { padding: 100px 0 120px; margin: 0; background: #222222; color: var(--white); }
 .work .section-number { color: var(--white); opacity: .5; }
 .work-grid { display: flex; flex-wrap: wrap; gap: 24px; padding: 0 80px; justify-content: center; }
 
@@ -392,7 +392,11 @@ section { position: relative; }
 }
 .work-card-cover img {
   width: 100%; height: 100%; object-fit: cover;
+  object-position: center;
   transition: transform .8s var(--ease-smooth);
+}
+.work-card[data-project="redesign-zorzo"] .work-card-cover img {
+  object-position: center top;
 }
 .work-card:hover .work-card-cover img { transform: scale(1.04); }
 
@@ -588,8 +592,20 @@ section { position: relative; }
 }
 
 @media (max-width: 1024px) {
-  .work { padding: 0 20px 40px; }
-  .work-card { width: 100%; max-width: 100%; }
+  .services { padding: 80px 0 100px; }
+  .work { padding: 80px 20px 100px; }
+  .statement { padding: 80px 20px 100px; }
+  .work-card { width: 100%; max-width: 600px; }
+  .work-grid { padding: 0 40px; }
+  .section-header { padding: 0 40px; }
+  .services-grid { padding: 0 40px; }
+}
+@media (max-width: 900px) {
+  .service-card { padding: 24px 20px 20px; }
+  .service-card-title { font-size: .9rem; }
+  .service-card-desc { font-size: 11px; }
+  .service-card-list li { font-size: 10px; }
+  .hero-subtitle { white-space: normal; }
 }
 @media (max-width: 768px) {
   .work-card { max-width: 100%; }
@@ -599,7 +615,7 @@ section { position: relative; }
   .work-card-expand-inner { padding: 0 16px 16px; }
   .work-card-role { grid-template-columns: 1fr; gap: 6px; }
   .work-card-role-list li { font-size: 11px; }
-  .work { padding: 60px 0 40px; }
+  .work { padding: 60px 0 80px; }
   .work-grid { padding: 0 16px; align-items: center; }
   .presentation-strip { padding: 4vh 0; }
   .presentation-strip img,
@@ -815,7 +831,7 @@ section { position: relative; }
 }
 
 @media (max-width: 768px) {
-  .services { padding: 80px 0 100px; }
+  .services { padding: 60px 0 80px; }
   .services-grid {
     padding: 0 20px;
   }
@@ -878,7 +894,7 @@ section { position: relative; }
 /* ─── STATEMENT ─── */
 .statement {
   background: var(--white); color: var(--accent);
-  padding: 160px 80px; margin: 0;
+  padding: 100px 80px 120px; margin: 0;
 }
 .statement .section-header { padding: 0; margin-bottom: 32px; }
 .statement .section-number { color: var(--accent); }
@@ -926,7 +942,7 @@ section { position: relative; }
 .statement-cta:hover { background: var(--accent-subtle); border-color: var(--accent-subtle); color: var(--white); gap: 20px; }
 
 @media (max-width: 768px) {
-  .statement { padding: 100px 20px; }
+  .statement { padding: 60px 20px 80px; }
 }
 
 /* ─── ABOUT MODAL ─── */
@@ -989,6 +1005,20 @@ section { position: relative; }
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-track {
+    padding-top: 10px;
+  }
+  .services-dot.active {
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.3); }
+  50% { box-shadow: 0 0 12px 4px rgba(255,255,255,.2); }
+}
 .footer-main {
   display: flex; justify-content: space-between; align-items: flex-start;
   margin-bottom: 80px;
@@ -1035,8 +1065,8 @@ section { position: relative; }
   .footer-cta-marquee { margin-bottom: 0; }
   .footer-main { flex-direction: column; align-items: center; gap: 40px; margin-bottom: 0; }
   .footer-left { order: 1; flex-direction: row; gap: 40px; }
-  .footer-bottom-mobile { display: none; }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(143,132,187,.15); width: 100%; font-size: 12px; color: var(--accent-subtle); }
+  .footer-bottom-mobile { display: flex; justify-content: space-between; align-items: center; width: calc(100% - 60px); font-size: 12px; color: var(--accent-subtle); padding-top: 24px; border-top: 1px solid rgba(143,132,187,.15); margin: 32px 30px 0; order: 2; }
+  .footer-bottom { display: none; }
   .footer-col-right { order: 2; }
   .footer-logo-main { height: 160px; width: 100vw; max-width: none; object-fit: cover; }
 }
