@@ -406,15 +406,46 @@ function initScrollAnimations() {
     return JSON.parse(card.getAttribute(attr) || '[]');
   }
 
-  function open(images) {
-    strip.innerHTML = images.map(src => {
-      if (src.endsWith('.mp4')) return `<video src="${src}" autoplay loop muted playsinline></video>`;
-      return `<img src="${src}" alt="">`;
-    }).join('');
+  function open(images, card) {
+    const project = card ? card.getAttribute('data-project') : '';
+    if (project === 'southair-social-media') {
+      const isMobile = window.innerWidth <= 768;
+      const langAttr = document.documentElement.getAttribute('lang') || 'pt';
+      const lang = langAttr.startsWith('en') ? 'en' : 'pt';
+      const part1 = `img/${isMobile ? 'mob' : 'web'} ${lang} part 1.png`;
+      const part2 = `img/${isMobile ? 'mob' : 'web'} ${lang} part 2.png`;
+
+      const carousels = [
+        { title: '4 Sinais', imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/4sinais ${i}.png`) },
+        { title: 'Crescimento', imgs: [1,2,3,4].map(i => `img/carrosseis/crescimento ${i}.png`) },
+        { title: 'Método', imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/metodo ${i}.png`) }
+      ];
+
+      let html = `<img src="${part1}" alt="">`;
+      carousels.forEach(c => {
+        html += `
+          <div class="ig-carousel-block">
+            <h3 class="ig-carousel-title">${c.title}</h3>
+            <div class="ig-carousel-track">
+              ${c.imgs.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+            </div>
+          </div>
+        `;
+      });
+      html += `<img src="${part2}" alt="">`;
+
+      strip.innerHTML = html;
+    } else {
+      strip.innerHTML = images.map(src => {
+        if (src.endsWith('.mp4')) return `<video src="${src}" autoplay loop muted playsinline></video>`;
+        return `<img src="${src}" alt="">`;
+      }).join('');
+    }
+
     pres.classList.add('open');
     document.body.style.overflow = 'hidden';
     pres.scrollTop = 0;
-    gsap.fromTo(strip.querySelectorAll('img, video'),
+    gsap.fromTo(strip.querySelectorAll('img, video, .ig-carousel-block'),
       { y: 40, opacity: 0 },
       { y: 0, opacity: 1, duration: 0.6, stagger: 0.04, ease: 'power2.out', delay: 0.1 }
     );
@@ -429,7 +460,7 @@ function initScrollAnimations() {
       e.stopPropagation();
       const card = btn.closest('.work-card');
       const imgs = getImages(card);
-      if (imgs.length) open(imgs);
+      if (imgs.length) open(imgs, card);
     });
   });
 
@@ -438,7 +469,7 @@ function initScrollAnimations() {
     cover.addEventListener('click', e => {
       const card = cover.closest('.work-card');
       const imgs = getImages(card);
-      if (imgs.length) open(imgs);
+      if (imgs.length) open(imgs, card);
     });
   });
 
