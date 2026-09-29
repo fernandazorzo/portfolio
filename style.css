@@ -1095,6 +1095,10 @@ section { position: relative; }
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   padding: 4px 20px;
+  cursor: grab;
+}
+.ig-carousel-track:active {
+  cursor: grabbing;
 }
 .ig-carousel-track::-webkit-scrollbar {
   display: none;
@@ -1107,10 +1111,44 @@ section { position: relative; }
   scroll-snap-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,.3);
   user-select: none;
+  pointer-events: none;
 }
+.ig-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.ig-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(45,30,245,0.85);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .3s, transform .3s, box-shadow .3s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+.ig-arrow:hover {
+  background: #2D1EF5;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(45,30,245,0.5);
+}
+.ig-prev { left: -10px; }
+.ig-next { right: -10px; }
+
 @media (min-width: 768px) {
   .ig-carousel-track img {
     flex: 0 0 45%;
     max-width: 280px;
   }
+}
+@media (max-width: 768px) {
+  .ig-arrow { display: none; }
 }

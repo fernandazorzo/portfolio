@@ -415,10 +415,16 @@ function initScrollAnimations() {
       const part1 = `img/${isMobile ? 'mob' : 'web'} ${lang} part 1.png`;
       const part2 = `img/${isMobile ? 'mob' : 'web'} ${lang} part 2.png`;
 
+      const langAttr = document.documentElement.getAttribute('lang') || 'pt';
+      const lang = langAttr.startsWith('en') ? 'en' : 'pt';
+      const t1 = lang === 'en' ? 'Carousel 1' : 'Carrossel 1';
+      const t2 = lang === 'en' ? 'Carousel 2' : 'Carrossel 2';
+      const t3 = lang === 'en' ? 'Carousel 3' : 'Carrossel 3';
+
       const carousels = [
-        { title: '4 Sinais', imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/4sinais ${i}.png`) },
-        { title: 'Crescimento', imgs: [1,2,3,4].map(i => `img/carrosseis/crescimento ${i}.png`) },
-        { title: 'Método', imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/metodo ${i}.png`) }
+        { title: t1, imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/4sinais ${i}.png`) },
+        { title: t2, imgs: [1,2,3,4].map(i => `img/carrosseis/crescimento ${i}.png`) },
+        { title: t3, imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/metodo ${i}.png`) }
       ];
 
       let html = `<img src="${part1}" alt="">`;
@@ -426,8 +432,16 @@ function initScrollAnimations() {
         html += `
           <div class="ig-carousel-block">
             <h3 class="ig-carousel-title">${c.title}</h3>
-            <div class="ig-carousel-track">
-              ${c.imgs.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+            <div class="ig-carousel-wrapper">
+              <button class="ig-arrow ig-prev" aria-label="Previous">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div class="ig-carousel-track">
+                ${c.imgs.map(src => `<img src="${src}" alt="" loading="lazy" draggable="false">`).join('')}
+              </div>
+              <button class="ig-arrow ig-next" aria-label="Next">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
             </div>
           </div>
         `;
@@ -435,6 +449,45 @@ function initScrollAnimations() {
       html += `<img src="${part2}" alt="">`;
 
       strip.innerHTML = html;
+
+      // Add interactivity: arrows, wheel scroll, mouse drag
+      strip.querySelectorAll('.ig-carousel-block').forEach(block => {
+        const track = block.querySelector('.ig-carousel-track');
+        const prev = block.querySelector('.ig-prev');
+        const next = block.querySelector('.ig-next');
+
+        prev.addEventListener('click', () => {
+          track.scrollBy({ left: -320, behavior: 'smooth' });
+        });
+        next.addEventListener('click', () => {
+          track.scrollBy({ left: 320, behavior: 'smooth' });
+        });
+
+        track.addEventListener('wheel', e => {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            track.scrollBy({ left: e.deltaY * 2, behavior: 'smooth' });
+          }
+        }, { passive: false });
+
+        let isDown = false;
+        let startX, scrollLeft;
+        track.addEventListener('mousedown', e => {
+          isDown = true;
+          track.style.cursor = 'grabbing';
+          startX = e.pageX - track.offsetLeft;
+          scrollLeft = track.scrollLeft;
+        });
+        track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
+        track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
+        track.addEventListener('mousemove', e => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          track.scrollLeft = scrollLeft - walk;
+        });
+      });
     } else {
       strip.innerHTML = images.map(src => {
         if (src.endsWith('.mp4')) return `<video src="${src}" autoplay loop muted playsinline></video>`;
