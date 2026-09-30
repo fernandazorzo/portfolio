@@ -393,6 +393,16 @@ function initScrollAnimations() {
   window.__openGallery = openGallery;
 })();
 
+// ─── CTA DO WHATSAPP DENTRO DA APRESENTACAO ───
+// O botao ja vem desenhado dentro da imagem "part 2" do Social Media - Southair.
+//Estas porcentagens localizam a pilula em cada variante (web/mob x pt/en).
+const CTA_BOX = {
+  'web|pt': { left: 27.7778, top: 90.3361, width: 44.4444, height: 3.8749 },
+  'web|en': { left: 27.7778, top: 90.0990, width: 44.4444, height: 3.9132 },
+  'mob|pt': { left: 17.5926, top: 89.5655, width: 64.8148, height: 3.7742 },
+  'mob|en': { left: 21.2037, top: 91.5097, width: 57.6852, height: 3.7331 }
+};
+
 // ─── CAROUSEL DRAG-TO-SCROLL (mouse only, touch keeps native swipe) ───
 function snapToNearest(track) {
   const max = Math.max(0, track.scrollWidth - track.clientWidth);
@@ -495,6 +505,11 @@ function enableDragScroll(strip) {
         { title: titles[2], imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/metodo ${i}.png`) }
       ];
 
+      // O botao de CTA ja vem desenhado na imagem "part 2" — estas sao as
+      // coordenadas da pilula, medidas em % de cada imagem.
+      const ctaBox = CTA_BOX[`${isMobile ? 'mob' : 'web'}|${lang}`];
+      const ctaLabel = lang === 'en' ? 'Chat on WhatsApp' : 'Falar no WhatsApp';
+
       let html = `<img src="${part1}" alt="">`;
       carousels.forEach(c => {
         html += `
@@ -506,7 +521,16 @@ function enableDragScroll(strip) {
           </div>
         `;
       });
-      html += `<img src="${part2}" alt="">`;
+      html += `
+        <div class="presentation-cta">
+          <img src="${part2}" alt="">
+          <a class="presentation-cta-hit"
+             href="https://wa.me/5551993536313"
+             target="_blank" rel="noopener"
+             aria-label="${ctaLabel}"
+             style="left:${ctaBox.left}%;top:${ctaBox.top}%;width:${ctaBox.width}%;height:${ctaBox.height}%"></a>
+        </div>
+      `;
 
       strip.innerHTML = html;
       enableDragScroll(strip);

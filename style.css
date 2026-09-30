@@ -622,6 +622,28 @@ section { position: relative; }
   .presentation-strip video { max-width: 100%; }
 }
 
+/* CTA de WhatsApp desenhado dentro da imagem "part 2" */
+.presentation-cta {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.presentation-cta-hit {
+  position: absolute;
+  min-height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: box-shadow .3s var(--ease-smooth);
+}
+.presentation-cta-hit:hover {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.presentation-cta-hit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 /* ─── SERVICES ─── */
 .services {
   padding: 100px 0 120px; margin: 0;
