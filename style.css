@@ -1092,12 +1092,25 @@ section { position: relative; }
   gap: 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
   -webkit-overflow-scrolling: touch;
-  padding: 4px 20px;
+  padding: 4px 20px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.38) transparent;
 }
 .ig-carousel-track::-webkit-scrollbar {
-  display: none;
+  height: 5px;
+}
+.ig-carousel-track::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+}
+.ig-carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.38);
+  border-radius: 3px;
+}
+.ig-carousel-track::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.6);
 }
 .ig-carousel-track img {
   flex: 0 0 75%;
@@ -1107,10 +1120,22 @@ section { position: relative; }
   scroll-snap-align: center;
   box-shadow: 0 8px 24px rgba(0,0,0,.3);
   user-select: none;
+  -webkit-user-drag: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ig-carousel-track { cursor: grab; }
+  .ig-carousel-track.dragging,
+  .ig-carousel-track.dragging:active { cursor: grabbing; }
 }
 @media (min-width: 768px) {
   .ig-carousel-track img {
     flex: 0 0 45%;
-    max-width: 280px;
+    max-width: 300px;
   }
+}
+/* No celular quem navega é o swipe, então a barra só polui */
+@media (max-width: 767px) {
+  .ig-carousel-track { scrollbar-width: none; }
+  .ig-carousel-track::-webkit-scrollbar { display: none; }
+  .ig-carousel-track { padding-bottom: 4px; }
 }

@@ -393,6 +393,76 @@ function initScrollAnimations() {
   window.__openGallery = openGallery;
 })();
 
+// ─── CAROUSEL DRAG-TO-SCROLL (mouse only, touch keeps native swipe) ───
+function snapToNearest(track) {
+  const max = Math.max(0, track.scrollWidth - track.clientWidth);
+  const cur = track.scrollLeft;
+  const mid = track.getBoundingClientRect().left + track.clientWidth / 2;
+
+  // Início e fim também são posições válidas — sem isso o último card
+  // nunca fica centralizável e ficaria cortado ao chegar no fim.
+  const targets = [0, max];
+  Array.from(track.children).forEach(img => {
+    const r = img.getBoundingClientRect();
+    targets.push((r.left + r.width / 2 - mid) + cur);
+  });
+
+  let best = 0, bestDist = Infinity;
+  targets.forEach(t => {
+    const pos = Math.max(0, Math.min(max, t));
+    const d = Math.abs(pos - cur);
+    if (d < bestDist) { bestDist = d; best = pos; }
+  });
+
+  track.scrollTo({ left: best, behavior: 'smooth' });
+}
+
+function enableDragScroll(strip) {
+  const DRAG_THRESHOLD = 6;
+
+  strip.querySelectorAll('.ig-carousel-track').forEach(track => {
+    let isDown = false, moved = false, startX = 0, startScroll = 0;
+
+    track.addEventListener('pointerdown', e => {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      isDown = true;
+      moved = false;
+      startX = e.clientX;
+      startScroll = track.scrollLeft;
+      track.style.scrollSnapType = 'none';
+      track.classList.add('dragging');
+    });
+
+    track.addEventListener('pointermove', e => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) < DRAG_THRESHOLD) return;
+      if (!moved) { moved = true; try { track.setPointerCapture(e.pointerId); } catch (_) {} }
+      track.scrollLeft = startScroll - dx * 1.2;
+    });
+
+    const release = () => {
+      if (!isDown) return;
+      isDown = false;
+      track.style.scrollSnapType = '';
+      track.classList.remove('dragging');
+      if (moved) snapToNearest(track);
+    };
+    track.addEventListener('pointerup', release);
+    track.addEventListener('pointercancel', release);
+
+    // A drag must not be mistaken for a click (which opens the gallery)
+    track.addEventListener('click', e => {
+      if (!moved) return;
+      moved = false;
+      e.preventDefault();
+      e.stopPropagation();
+    }, true);
+
+    track.addEventListener('dragstart', e => e.preventDefault());
+  });
+}
+
 // ─── PRESENTATION MODAL ───
 (function() {
   const pres = document.getElementById('presentation');
@@ -415,10 +485,14 @@ function initScrollAnimations() {
       const part1 = `img/${isMobile ? 'mob' : 'web'} ${lang} part 1.png`;
       const part2 = `img/${isMobile ? 'mob' : 'web'} ${lang} part 2.png`;
 
+      const titles = lang === 'en'
+        ? ['Carousel 1', 'Carousel 2', 'Carousel 3']
+        : ['Carrossel 1', 'Carrossel 2', 'Carrossel 3'];
+
       const carousels = [
-        { title: '4 Sinais', imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/4sinais ${i}.png`) },
-        { title: 'Crescimento', imgs: [1,2,3,4].map(i => `img/carrosseis/crescimento ${i}.png`) },
-        { title: 'Método', imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/metodo ${i}.png`) }
+        { title: titles[0], imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/4sinais ${i}.png`) },
+        { title: titles[1], imgs: [1,2,3,4].map(i => `img/carrosseis/crescimento ${i}.png`) },
+        { title: titles[2], imgs: [1,2,3,4,5,6,7].map(i => `img/carrosseis/metodo ${i}.png`) }
       ];
 
       let html = `<img src="${part1}" alt="">`;
@@ -427,7 +501,7 @@ function initScrollAnimations() {
           <div class="ig-carousel-block">
             <h3 class="ig-carousel-title">${c.title}</h3>
             <div class="ig-carousel-track">
-              ${c.imgs.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+              ${c.imgs.map(src => `<img src="${src}" alt="" loading="lazy" draggable="false">`).join('')}
             </div>
           </div>
         `;
@@ -435,6 +509,7 @@ function initScrollAnimations() {
       html += `<img src="${part2}" alt="">`;
 
       strip.innerHTML = html;
+      enableDragScroll(strip);
     } else {
       strip.innerHTML = images.map(src => {
         if (src.endsWith('.mp4')) return `<video src="${src}" autoplay loop muted playsinline></video>`;
